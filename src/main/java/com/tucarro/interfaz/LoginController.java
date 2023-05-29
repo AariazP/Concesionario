@@ -1,6 +1,8 @@
 package com.tucarro.interfaz;
 
+import com.tucarro.application.Application;
 import com.tucarro.model.Login;
+import com.tucarro.utilities.Paths;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,22 +53,15 @@ public class LoginController implements Initializable {
         if (!txtUser.getText().isEmpty() && !txtPassword.getText().isEmpty() && !rol.getValue().isEmpty()) {     //Condición que valida si los campos de textos están vacios.
             boolean acceso;
             String usuario = txtUser.getText();
-            String contraseña = txtPassword.getText();
+            String contrasenia = txtPassword.getText();
             String rolUsuario = rol.getValue();
 
             Login login = new Login();
-            acceso = login.iniciarSesion(usuario, contraseña);
+            acceso = login.iniciarSesion(usuario, contrasenia);
 
-            if (acceso == true) {
+            if (acceso) {
                 if(rolUsuario.equals("Administrador")){
-                    FXMLLoader admin = new FXMLLoader(getClass().getResource("administrador.fxml"));
-                    Parent root = admin.load();
-                    AdminController controlador = admin.getController();
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Administrador");
-                    stage.showAndWait();
+                    Application.getApplication().loadStage(Paths.ADMINISTRADOR);
 
                 }else if (rolUsuario.equals("Empleado")){
                     FXMLLoader empleado = new FXMLLoader(getClass().getResource("empleado.fxml"));

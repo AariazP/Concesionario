@@ -79,7 +79,7 @@ public class Concesionario {
                 empleado.setNombre(nombre);
                 empleado.setApellido(apellido);
                 empleado.setEmail(email);
-                empleado.setContraseña(contrasenia);
+                empleado.setContrasenia(contrasenia);
                return true;
 
             }

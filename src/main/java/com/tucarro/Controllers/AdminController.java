@@ -90,7 +90,7 @@ public class AdminController {
                 txtApellido.setText(empleados.get(i).getApellido());
                 txtCedula.setText(empleados.get(i).getCedula());
                 txtEmail.setText(empleados.get(i).getEmail());
-                txtContraseña.setText(empleados.get(i).getContraseña());
+                txtContraseña.setText(empleados.get(i).getContrasenia());
             }else{
                 JOptionPane.showMessageDialog(null, "El usuario ingresado no existe, por favor verifique", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
 

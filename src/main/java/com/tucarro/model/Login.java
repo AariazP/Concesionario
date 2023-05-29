@@ -31,7 +31,7 @@ public class Login {
      * @param contraseña
      * @return acceso
      */
-    public boolean iniciarSesion(String usuario, String contraseña){
+    public boolean iniciarSesion(String usuario, String contrasenia){
 
         boolean acceso = false;
 
@@ -39,7 +39,7 @@ public class Login {
         usuarios.add(empleado1);
 
         for(int i = 0; i < usuarios.size(); i++){
-            if(usuarios.get(i).getEmail().equals(usuario) && usuarios.get(i).getContraseña().equals(contraseña)){
+            if(usuarios.get(i).getEmail().equals(usuario) && usuarios.get(i).getContrasenia().equals(contrasenia)){
                 acceso = true;
             }
         }

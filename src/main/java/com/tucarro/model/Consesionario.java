@@ -20,15 +20,14 @@ public enum Consesionario {
 	
 public boolean buscarEmpleado(String usuario, String pin) {
 	boolean bandera=true;
-	for(int i=0;i<listEmpleados.size();i++) {
-		
-		Empleado temp=listEmpleados.get(i);
-		if(temp.getCorreo().equals(usuario) && temp.getPin().equals(pin) ) {
+	for (Empleado temp : listEmpleados) {
+
+		if (temp.getEmail().equals(usuario) && temp.getContrasenia().equals(pin)) {
 			return bandera;
-		}else {
-			 bandera=false;
+		} else {
+			bandera = false;
 		}
-		
+
 	}
 	return bandera;
 }
@@ -37,8 +36,8 @@ public boolean buscarEmpleado(String usuario, String pin) {
 		boolean bandera=true;
 		for(int i=0;i<listEmpleados.size();i++) {
 
-			String temp=listEmpleados.get(i).getId();
-			if(temp.equals(empleado.getId())) {
+			String temp=listEmpleados.get(i).getCedula();
+			if(temp.equals(empleado.getCedula())) {
 				return bandera;
 			}else {
 				bandera=false;
@@ -68,12 +67,12 @@ public void registrarEmpleado(Empleado empleado) {
 	
 	public void actualizarEmpleado(Empleado empleado, String nombre,String id, String correo, String pin) {
 		
-		if(empleado.getPin()==pin) {
+		if(empleado.getContrasenia().equals(pin)) {
 			
-			empleado.setCorreo(correo);
-			empleado.setId(id);
+			empleado.setEmail(correo);
+			//empleado.set(id);
 			empleado.setNombre(nombre);
-			empleado.setPin(pin);
+			empleado.setContrasenia(pin);
 			
 		}else {
 			System.out.println("Empleado no encontrado	");
@@ -84,7 +83,7 @@ public void registrarEmpleado(Empleado empleado) {
 		
 		boolean temp=buscarEmpleado(empleado);
 		
-		if(temp == true) {
+		if(temp) {
 			listEmpleados.remove(empleado);
 		}else {
 			System.out.println("Empleado no encontrado");

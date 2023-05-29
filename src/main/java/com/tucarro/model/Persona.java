@@ -29,5 +29,20 @@ public abstract class Persona {
         this.contrasenia = contrasenia;
     }
 
+    public boolean compararEmail(String email){
+        return this.email.equals(email);
+    }
+
+    public boolean compararContrasenia(String contrasenia){
+        return this.contrasenia.equals(contrasenia);
+    }
+
+    public boolean compararCedula(String cedula){
+        return this.cedula.equals(cedula);
+    }
+
+
+
+
 
 }

@@ -48,16 +48,16 @@ public class Administrador extends Persona{
      * @param apellido
      * @param cedula
      * @param email
-     * @param contraseña
+     * @param contrasenia
      */
-    public boolean registrarEmpleado(String nombre, String apellido, String cedula, String email, String contraseña) {
+    public boolean registrarEmpleado(String nombre, String apellido, String cedula, String email, String contrasenia) {
         empleados.add(empleado);
-        Empleado empleado = new Empleado(nombre, apellido, cedula, email, contraseña);
+        Empleado empleado = new Empleado(nombre, apellido, cedula, email, contrasenia);
         empleado.setNombre(nombre);
         empleado.setApellido(apellido);
         empleado.setCedula(cedula);
         empleado.setEmail(email);
-        empleado.setContraseña(contraseña);
+        empleado.setContrasenia(contrasenia);
 
         boolean registro = false;
 
@@ -93,9 +93,9 @@ public class Administrador extends Persona{
      * @param apellido
      * @param cedula
      * @param email
-     * @param contraseña
+     * @param contrasenia
      */
-    public boolean actualizarDatosEmpleado(String nombre, String apellido, String cedula, String email, String contraseña){
+    public boolean actualizarDatosEmpleado(String nombre, String apellido, String cedula, String email, String contrasenia){
         empleados.add(empleado);
         boolean actualizado = false;
             for(int i = 0; i < empleados.size(); i++){
@@ -104,7 +104,7 @@ public class Administrador extends Persona{
                     empleados.get(i).setNombre(nombre);
                     empleados.get(i).setApellido(apellido);
                     empleados.get(i).setEmail(email);
-                    empleados.get(i).setContraseña(contraseña);
+                    empleados.get(i).setContrasenia(contrasenia);
 
                     actualizado = true;
                 }

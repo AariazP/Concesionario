@@ -31,10 +31,10 @@ public class Sedan extends Automovil{
 				+ getAsistentePermanencia() + ", getAireAcondicionado()=" + getAireAcondicionado()
 				+ ", getCombustible()=" + getCombustible() + ", getTransmision()=" + getTransmision() + ", getMarca()="
 				+ getMarca() + ", getModelo()=" + getModelo() + ", getEstadoVehiculo()=" + getEstadoVehiculo()
-				+ ", getVelocidadMaxima()=" + getVelocidadMaxima() + ", getCantCambios()=" + getCantCambios()
+				+ ", getVelocidadMaxima()=" + getVelocidadMaxima() + ", getCantCambios()=" + getCambios()
 				+ ", getCilindraje()=" + getCilindraje() + ", getFotos()=" + Arrays.toString(getFotos())
-				+ ", getTieneAbs()=" + getTieneAbs() + ", getPlaca()=" + getPlaca() + ", getDisponibilidad()="
-				+ getDisponibilidad() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ ", getTieneAbs()=" + getAbs() + ", getPlaca()=" + getPlaca() + ", getDisponibilidad()="
+				+ getDisponibilidadVehiculo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]");
 	}
 

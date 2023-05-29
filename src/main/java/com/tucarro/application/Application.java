@@ -1,4 +1,4 @@
-package com.tucarro.Controllers;
+package com.tucarro.application;
 
 import com.tucarro.utilities.Paths;
 import javafx.fxml.FXMLLoader;
