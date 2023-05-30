@@ -26,9 +26,8 @@ public class AdminController {
     private PasswordField txtContrasenia;
     @FXML
     private ChoiceBox<String> estado;
-    @FXML
-    private
-    Button btnRegistrar, btnActualizar, btnEliminar;
+
+    private  Button btnRegistrar, btnActualizar, btnEliminar;
     @FXML private TableView<Cliente> tblClientes;
     //Declarar las columnas de la tabla
     @FXML private TableColumn<Cliente, String> colNombre;

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="659.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.interfaz.EmpleadoController">
+<AnchorPane prefHeight="659.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.interfaz.EmpleadoController">
    <children>
       <TabPane prefHeight="659.0" prefWidth="910.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -24,18 +22,38 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="858.0">
                      <children>
-                        <ComboBox fx:id="cmbTipoVehiculo" layoutX="40.0" layoutY="89.0" onAction="#updateFields" prefWidth="150.0" />
-                        <Label layoutX="23.0" layoutY="52.0" text="Seleccione un tipo de vehiculo" />
-                        <ScrollPane layoutX="297.0" layoutY="23.0" prefHeight="554.0" prefWidth="585.0">
-                           <content>
-                              <HBox prefHeight="551.0" prefWidth="572.0">
-                                 <children>
-                                    <VBox fx:id="vboxLabels" prefHeight="551.0" prefWidth="342.0" />
-                                    <VBox fx:id="vBoxTextFields" prefHeight="551.0" prefWidth="340.0" />
-                                 </children>
-                              </HBox>
-                           </content>
+                        <ScrollPane layoutX="25.0" layoutY="22.0" prefHeight="583.0" prefWidth="395.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                          </content>
                         </ScrollPane>
+                        <TabPane layoutX="433.0" layoutY="20.0" prefHeight="584.0" prefWidth="454.0" style="-fx-border-color: BLACK;" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Sedan">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="26.0" layoutY="49.0" text="Capacidad del maletero" />
+                                          <TextField layoutX="187.0" layoutY="54.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="van">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                              <Tab text="Bus">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Label layoutX="35.0" layoutY="77.0" text="Placa" />
+                        <TextField layoutX="110.0" layoutY="73.0" />
+                        <Label layoutX="28.0" layoutY="36.0" text="Atributos de automovil" />
                      </children></AnchorPane>
             </content>
           </Tab>

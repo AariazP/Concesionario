@@ -20,8 +20,6 @@ public class LoginController {
     private PasswordField txtPassword;
     @FXML
     private ChoiceBox<String> rol;
-    @FXML
-    private Button btnLogin;
     //-------------------------------------Métodos------------------------------------------------
 
     @FXML
