@@ -2,6 +2,7 @@ package com.tucarro.controllers;
 
 import com.tucarro.application.Application;
 import com.tucarro.model.*;
+import com.tucarro.utilities.Paths;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,8 +25,6 @@ public class AdminController {
     private TextField txtEmail;
     @FXML
     private PasswordField txtContrasenia;
-    @FXML
-    private ChoiceBox<String> estado;
 
     private  Button btnRegistrar, btnActualizar, btnEliminar;
     @FXML private TableView<Cliente> tblClientes;
@@ -91,7 +90,6 @@ public class AdminController {
         txtCedula.setText("");
         txtEmail.setText("");
         txtContrasenia.setText("");
-        estado.setValue("");
         btnActualizar.setDisable(true);//permite que solo el boton de registrar se active
         btnEliminar.setDisable(true);
         btnRegistrar.setDisable(false);
@@ -109,14 +107,13 @@ public class AdminController {
         String cedula = txtCedula.getText();
         String email = txtEmail.getText();
         String contrasenia = txtContrasenia.getText();
-        String estadoUsuario = estado.getSelectionModel().getSelectedItem();
 
-        Cliente cliente = new Cliente(nombre, apellido, cedula, email, contrasenia, estadoUsuario );
+        Cliente cliente = new Cliente(nombre, apellido, cedula, email, contrasenia);
 
 
 
         if (!nombre.isEmpty() && !apellido.isEmpty() && !cedula.isEmpty()
-                && !email.isEmpty() && !contrasenia.isEmpty() && !estadoUsuario.isEmpty()) {
+                && !email.isEmpty() && !contrasenia.isEmpty()) {
 
             if(Concesionario.getInstance().crearCliente(cliente)){
 
@@ -159,9 +156,8 @@ public class AdminController {
         System.out.println("cedula = " + cedula);
         String email = txtEmail.getText();
         String contrasenia = txtContrasenia.getText();
-        String estadoEmpleado = estado.getValue();
 
-        if(Concesionario.getInstance().actualizarDatosCliente(nombre, apellido, cedula, email, contrasenia, estadoEmpleado)){
+        if(Concesionario.getInstance().actualizarDatosCliente(nombre, apellido, cedula, email, contrasenia)){
             tblClientes.refresh();
             Application.getApplication().mostrarAlerta("Cliente actualizado con éxito");
         }else {
@@ -181,7 +177,6 @@ public class AdminController {
         txtCedula.setText(cliente.getCedula());
         txtEmail.setText(cliente.getEmail());
         txtContrasenia.setText(cliente.getContrasenia());
-        estado.setValue(cliente.getEstado());
         btnActualizar.setDisable(false);
         btnEliminar.setDisable(false);
         btnRegistrar.setDisable(true);
@@ -201,10 +196,38 @@ public class AdminController {
         refrescarTabla();
     }
 
+    //--------------CRUD EMPLEADO------------------
+    @FXML
+    void actualizarEmpleado(ActionEvent event) {
+
+    }
+
+    @FXML
+    void crearEmpleado(ActionEvent event) {
+
+    }
+
+    @FXML
+    void eliminarEmpleado(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarCamposEmpleado(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void volverLogin(ActionEvent event) {
+        Application.getApplication().loadStage(Paths.LOGIN);
+    }
+
+
+
     @FXML
     public void initialize() {
 
-        estado.getItems().addAll("Activo", "Bloqueado");   //Agrega valores al ChoiceBox
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
         colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));

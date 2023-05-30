@@ -14,328 +14,365 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.AdminController">
+
+<AnchorPane prefHeight="664.0" prefWidth="938.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.AdminController">
    <children>
-      <VBox prefHeight="450.0" prefWidth="727.0">
+      <HBox layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="938.0">
          <children>
-            <TabPane maxWidth="1.7976931348623157E308" prefHeight="450.0" prefWidth="704.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-              <tabs>
-                <Tab fx:id="tabIndex" text="Inicio">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="200.0">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="424.0" prefWidth="724.0">
+            <VBox prefHeight="614.0" prefWidth="957.0">
+               <children>
+                  <TabPane maxWidth="1.7976931348623157E308" prefHeight="450.0" prefWidth="704.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab fx:id="tabIndex" text="Inicio">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="200.0">
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Bienvenido a Tu Carro" textFill="#e4bc0c">
-                                       <font>
-                                          <Font name="System Bold Italic" size="48.0" />
-                                       </font>
-                                       <padding>
-                                          <Insets bottom="30.0" />
-                                       </padding>
-                                    </Label>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab fx:id="tabReportes" text="Reportes">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="422.0" prefWidth="724.0">
-                                 <children>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                    <VBox alignment="CENTER" prefHeight="424.0" prefWidth="724.0">
                                        <children>
-                                          <Label text="Ingresar usuario">
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin></Label>
-                                          <TextField promptText="Identificación">
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin></TextField>
-                                          <Button mnemonicParsing="false" text="Buscar" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="Bienvenido a Tu Carro" textFill="#e4bc0c">
+                                             <font>
+                                                <Font name="System Bold Italic" size="48.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="30.0" />
+                                             </padding>
+                                          </Label>
                                        </children>
-                                       <VBox.margin>
-                                          <Insets bottom="15.0" right="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <Label text="Reporte de Empleado">
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets bottom="15.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <TableView prefHeight="406.0" prefWidth="622.0">
-                                      <columns>
-                                        <TableColumn prefWidth="147.0" text="Cliente" />
-                                        <TableColumn prefWidth="92.0" text="Fecha" />
-                                          <TableColumn prefWidth="145.0" text="Empleado" />
-                                          <TableColumn minWidth="9.0" prefWidth="147.0" text="Trámite" />
-                                          <TableColumn prefWidth="162.0" text="Vehiculo" />
-                                      </columns>
-                                       <VBox.margin>
-                                          <Insets bottom="15.0" left="15.0" right="15.0" />
-                                       </VBox.margin>
-                                    </TableView>
-                                 </children></VBox>
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab text="Gestionar usuario">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <HBox layoutX="1.0" layoutY="-1.0" prefHeight="422.0" prefWidth="724.0">
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="tabReportes" text="Reportes">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="300.0" prefWidth="284.0">
+                                    <VBox alignment="CENTER" prefHeight="581.0" prefWidth="938.0">
                                        <children>
-                                          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                              <children>
                                                 <Label text="Ingresar usuario">
                                                    <HBox.margin>
                                                       <Insets right="5.0" />
-                                                   </HBox.margin></Label>
-                                                <TextField fx:id="txtBuscar" onKeyReleased="#buscar" prefHeight="26.0" prefWidth="155.0" promptText="Identificación">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin></TextField>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="10.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                          <Separator prefWidth="273.0" />
-                                          <Label text="Tu Carro" textFill="#e4bc0c">
-                                             <font>
-                                                <Font name="System Bold" size="20.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Nombres">
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" right="70.0" />
-                                                   </HBox.margin></Label>
-                                                <Label text="Apellidos">
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" left="10.0" />
-                                                   </HBox.margin></Label>
-                                             </children>
-                                          </HBox>
-                                          <VBox alignment="CENTER" prefHeight="20.0" prefWidth="20.0">
-                                             <children>
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                                   <children>
-                                                      <TextField fx:id="txtNombre" />
-                                                      <TextField fx:id="txtApellido">
-                                                         <HBox.margin>
-                                                            <Insets left="10.0" />
-                                                         </HBox.margin>
-                                                      </TextField>
-                                                   </children>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </HBox>
-                                             </children>
-                                          </VBox>
-                                          <Label text="Cedula">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin></Label>
-                                          <TextField fx:id="txtCedula" />
-                                          <Label text="Email">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin></Label>
-                                          <TextField fx:id="txtEmail" />
-                                          <Label text="Contraseña">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin></Label>
-                                          <PasswordField fx:id="txtContrasenia" />
-                                          <Label text="Estado">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin></Label>
-                                          <ChoiceBox fx:id="estado" prefWidth="150.0" />
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                             <children>
-                                                <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#crearCliente" text="Registrar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin></Button>
-                                                <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin></Button>
-                                                <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin></Button>
-                                                <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampos" text="Limpiar" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                       <HBox.margin>
-                                          <Insets left="10.0" right="10.0" />
-                                       </HBox.margin></VBox>
-                                    <TableView fx:id="tblClientes" prefHeight="422.0" prefWidth="442.0">
-                                      <columns>
-                                        <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombres" />
-                                        <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellidos" />
-                                          <TableColumn fx:id="colCedula" prefWidth="75.0" text="Cedula" />
-                                          <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
-                                          <TableColumn fx:id="colContrasenia" prefWidth="75.0" text="Contraseña" />
-                                          <TableColumn fx:id="colEstado" prefWidth="65.0" text="Estado" />
-                                      </columns>
-                                    </TableView>
-                                 </children></HBox>
-                           </children></AnchorPane>
-                     </content>
-                  </Tab>
-                  <Tab text="Gestionar Empleados">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <HBox layoutX="1.0" layoutY="-1.0" prefHeight="422.0" prefWidth="724.0">
-                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="300.0" prefWidth="284.0">
-                                       <children>
-                                          <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
-                                             <children>
-                                                <Label text="Ingresar cedula">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField fx:id="txtBuscarEmpleado" onKeyReleased="#buscar" prefHeight="26.0" prefWidth="155.0" promptText="Identificación">
+                                                <TextField promptText="Identificación">
                                                    <HBox.margin>
                                                       <Insets right="5.0" />
                                                    </HBox.margin>
                                                 </TextField>
+                                                <Button mnemonicParsing="false" text="Buscar" />
                                              </children>
                                              <VBox.margin>
-                                                <Insets bottom="5.0" top="10.0" />
+                                                <Insets bottom="15.0" right="10.0" top="10.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <Separator prefWidth="273.0" />
-                                          <Label text="Tu Carro" textFill="#e4bc0c">
+                                          <Label text="Reporte de Empleado">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
+                                                <Insets bottom="15.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="200.0">
+                                          <TableView prefHeight="406.0" prefWidth="622.0">
+                                            <columns>
+                                              <TableColumn prefWidth="147.0" text="Cliente" />
+                                              <TableColumn prefWidth="92.0" text="Fecha" />
+                                                <TableColumn prefWidth="145.0" text="Empleado" />
+                                                <TableColumn minWidth="9.0" prefWidth="147.0" text="Trámite" />
+                                                <TableColumn prefWidth="162.0" text="Vehiculo" />
+                                            </columns>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" left="15.0" right="15.0" />
+                                             </VBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Gestionar usuario">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox layoutX="1.0" layoutY="-1.0" prefHeight="583.0" prefWidth="938.0">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="300.0" prefWidth="284.0">
                                              <children>
-                                                <Label text="Nombres">
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" right="70.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <Label text="Apellidos">
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" left="10.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                          <VBox alignment="CENTER" prefHeight="20.0" prefWidth="20.0">
-                                             <children>
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
                                                    <children>
-                                                      <TextField fx:id="txtNombreEmpleado" />
-                                                      <TextField fx:id="txtApellido1">
+                                                      <Label text="Ingresar usuario">
                                                          <HBox.margin>
-                                                            <Insets left="10.0" />
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtBuscar" onKeyReleased="#buscar" prefHeight="26.0" prefWidth="155.0" promptText="Identificación">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
                                                          </HBox.margin>
                                                       </TextField>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets />
+                                                      <Insets bottom="5.0" top="10.0" />
                                                    </VBox.margin>
                                                 </HBox>
+                                                <Separator prefWidth="273.0" />
+                                                <Label text="Tu Carro" textFill="#e4bc0c">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Nombres">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" right="70.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label text="Apellidos">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="20.0" prefWidth="20.0">
+                                                   <children>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TextField fx:id="txtNombre" />
+                                                            <TextField fx:id="txtApellido">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <Label text="Cedula">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="txtCedula" />
+                                                <Label text="Email">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="txtEmail" />
+                                                <Label text="Contraseña">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <PasswordField fx:id="txtContrasenia" />
+                                                <Label text="Estado">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#crearCliente" text="Registrar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarCliente" text="Actualizar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampos" text="Limpiar" />
+                                                   </children>
+                                                </HBox>
                                              </children>
+                                             <HBox.margin>
+                                                <Insets left="60.0" right="10.0" />
+                                             </HBox.margin>
                                           </VBox>
-                                          <Label text="Cedula">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <TextField fx:id="txtCedula1" />
-                                          <Label text="Email">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <TextField fx:id="txtEmail1" />
-                                          <Label text="Contraseña">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <PasswordField fx:id="txtContrasenia1" />
-                                          <Label text="Estado">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <ChoiceBox fx:id="estado1" prefWidth="150.0" />
-                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                             <children>
-                                                <Button mnemonicParsing="false" onAction="#crearEmpleado" text="Registrar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#actualizarEmpleado" text="Actualizar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#eliminarEmpleado" text="Eliminar">
-                                                   <HBox.margin>
-                                                      <Insets right="5.0" />
-                                                   </HBox.margin>
-                                                </Button>
-                                                <Button mnemonicParsing="false" onAction="#limpiarCamposEmpleado" text="Limpiar" />
-                                             </children>
-                                          </HBox>
+                                          <TableView fx:id="tblClientes" prefHeight="422.0" prefWidth="442.0">
+                                            <columns>
+                                              <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombres" />
+                                              <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellidos" />
+                                                <TableColumn fx:id="colCedula" prefWidth="75.0" text="Cedula" />
+                                                <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+                                                <TableColumn fx:id="colContrasenia" prefWidth="75.0" text="Contraseña" />
+                                                <TableColumn fx:id="colEstado" prefWidth="65.0" text="Estado" />
+                                            </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="30.0" left="100.0" top="30.0" />
+                                             </HBox.margin>
+                                          </TableView>
                                        </children>
-                                       <HBox.margin>
-                                          <Insets left="10.0" right="10.0" />
-                                       </HBox.margin>
-                                    </VBox>
-                                    <TableView fx:id="tblEmpleados" prefHeight="422.0" prefWidth="442.0">
-                                       <columns>
-                                          <TableColumn fx:id="colNombre1" prefWidth="75.0" text="Nombres" />
-                                          <TableColumn fx:id="colApellido1" prefWidth="75.0" text="Apellidos" />
-                                          <TableColumn fx:id="colCedula1" prefWidth="75.0" text="Cedula" />
-                                          <TableColumn fx:id="colEmail1" prefWidth="75.0" text="Email" />
-                                          <TableColumn fx:id="colContrasenia1" prefWidth="75.0" text="Contraseña" />
-                                          <TableColumn fx:id="colEstado1" prefWidth="65.0" text="Estado" />
-                                       </columns>
-                                    </TableView>
+                                    </HBox>
                                  </children>
-                              </HBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-         </children></VBox>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Gestionar Empleados">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox layoutX="1.0" layoutY="-1.0" prefHeight="585.0" prefWidth="938.0">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="300.0" prefWidth="284.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Ingresar cedula">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <TextField fx:id="txtBuscarEmpleado" onKeyReleased="#buscar" prefHeight="26.0" prefWidth="155.0" promptText="Identificación">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Separator prefWidth="273.0" />
+                                                <Label text="Tu Carro" textFill="#e4bc0c">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Nombres">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" right="70.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                      <Label text="Apellidos">
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" left="10.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="20.0" prefWidth="20.0">
+                                                   <children>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TextField fx:id="txtNombreEmpleado" />
+                                                            <TextField fx:id="txtApellido1">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <Label text="Cedula">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="txtCedula1" />
+                                                <Label text="Email">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="txtEmail1" />
+                                                <Label text="Contraseña">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <PasswordField fx:id="txtContrasenia1" />
+                                                <Label text="Estado">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <ChoiceBox fx:id="estado1" prefWidth="150.0" />
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#crearEmpleado" text="Registrar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#actualizarEmpleado" text="Actualizar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#eliminarEmpleado" text="Eliminar">
+                                                         <HBox.margin>
+                                                            <Insets right="5.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#limpiarCamposEmpleado" text="Limpiar" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="60.0" right="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <TableView fx:id="tblEmpleados" prefHeight="422.0" prefWidth="442.0">
+                                             <columns>
+                                                <TableColumn fx:id="colNombre1" prefWidth="75.0" text="Nombres" />
+                                                <TableColumn fx:id="colApellido1" prefWidth="75.0" text="Apellidos" />
+                                                <TableColumn fx:id="colCedula1" prefWidth="75.0" text="Cedula" />
+                                                <TableColumn fx:id="colEmail1" prefWidth="75.0" text="Email" />
+                                                <TableColumn fx:id="colContrasenia1" prefWidth="75.0" text="Contraseña" />
+                                                <TableColumn fx:id="colEstado1" prefWidth="65.0" text="Estado" />
+                                             </columns>
+                                             <HBox.margin>
+                                                <Insets bottom="30.0" left="100.0" top="30.0" />
+                                             </HBox.margin>
+                                          </TableView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3b80e7b" height="50.0" stroke="#ffffff00" strokeType="INSIDE" width="938.0" />
+      <Label layoutX="409.0" layoutY="14.0" styleClass="Label" stylesheets="@../styles/styles.css" text="TU CARRO">
+         <font>
+            <Font name="Al Nile" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#volverLogin" styleClass="Button-BackLogin" text="&lt;" />
    </children>
-</HBox>
+</AnchorPane>

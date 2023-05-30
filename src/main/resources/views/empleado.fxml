@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
@@ -8,70 +11,175 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="659.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.interfaz.EmpleadoController">
-   <children>
-      <TabPane prefHeight="659.0" prefWidth="910.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Inicio">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Ingresar vehículos">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="858.0">
-                     <children>
-                        <ScrollPane layoutX="25.0" layoutY="22.0" prefHeight="583.0" prefWidth="395.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                          </content>
-                        </ScrollPane>
-                        <TabPane layoutX="433.0" layoutY="20.0" prefHeight="584.0" prefWidth="454.0" style="-fx-border-color: BLACK;" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Sedan">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="26.0" layoutY="49.0" text="Capacidad del maletero" />
-                                          <TextField layoutX="187.0" layoutY="54.0" />
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                            <Tab text="van">
-                              <content>
+<AnchorPane prefHeight="664.0" prefWidth="800.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.EmpleadoController">
+    <children>
+        <AnchorPane prefHeight="659.0" prefWidth="910.0">
+            <children>
+                <TabPane layoutY="50.0" prefHeight="609.0" prefWidth="937.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Inicio">
+                            <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                            </Tab>
-                              <Tab text="Bus">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                 </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                        <Label layoutX="35.0" layoutY="77.0" text="Placa" />
-                        <TextField layoutX="110.0" layoutY="73.0" />
-                        <Label layoutX="28.0" layoutY="36.0" text="Atributos de automovil" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Inventario">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView prefHeight="424.0" prefWidth="443.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+                            </content>
+                        </Tab>
+                        <Tab text="Ingresar vehículos">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="858.0">
+                                    <children>
+                                        <ScrollPane layoutX="25.0" layoutY="45.0" prefHeight="524.0" prefWidth="381.0" style="-fx-border-color: Transparent;">
+                                            <content>
+                                                <AnchorPane prefHeight="710.0" prefWidth="348.0" styleClass="PaneItems">
+                                                    <children>
+                                                        <VBox prefHeight="513.0" prefWidth="346.0">
+                                                            <children>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                                <Label styleClass="LabelItems" text="Placa" VBox.vgrow="ALWAYS">
+                                                                    <VBox.margin>
+                                                                        <Insets left="150.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField promptText="Placa" styleClass="TextFieldItems">
+                                                                    <VBox.margin>
+                                                                        <Insets left="30.0" right="30.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <TabPane layoutX="433.0" layoutY="20.0" prefHeight="584.0" prefWidth="454.0" style="-fx-border-color: BLACK;" tabClosingPolicy="UNAVAILABLE">
+                                            <tabs>
+                                                <Tab text="Sedan">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <Label layoutX="26.0" layoutY="49.0" text="Capacidad del maletero" />
+                                                                <TextField layoutX="187.0" layoutY="54.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </Tab>
+                                                <Tab text="van">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab text="Bus">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                            </tabs>
+                                        </TabPane>
+                                        <Label layoutX="25.0" layoutY="6.0" text="Atributos de automovil" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Inventario">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView prefHeight="424.0" prefWidth="443.0">
+                                            <columns>
+                                                <TableColumn prefWidth="75.0" text="C1" />
+                                                <TableColumn prefWidth="75.0" text="C2" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3b80e7a" height="50.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="938.0" />
+                <Label layoutX="430.0" layoutY="13.0" styleClass="Label" text="TU CARRO">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Label>
+                <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#volverLogin" styleClass="Button-BackLogin" text="&lt;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
 </AnchorPane>

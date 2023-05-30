@@ -7,11 +7,10 @@ import lombok.Setter;
 @Setter
 public class Cliente extends Persona{
 
-	private String estado;
 
-	public Cliente(String nombre, String apellido, String cedula, String email, String contrasenia, String estado) {
+
+	public Cliente(String nombre, String apellido, String cedula, String email, String contrasenia) {
 		super(nombre, apellido, cedula, email, contrasenia);
-		this.estado = estado;
 	}
 
 	

@@ -1,0 +1,41 @@
+.Label{
+
+    -fx-font-family: "Times New Roman";
+    -fx-text-fill: BLACK;
+
+}
+
+.Button-BackLogin{
+
+    -fx-text-fill: BLACK;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-background-color: TRANSPARENT;
+    -fx-border-color: BLACK;
+}
+
+
+.PaneItems{
+
+    -fx-background-color: rgba(227, 184, 14, 0.48);
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: BLACK;
+
+}
+
+
+
+.LabelItems{
+    -fx-text-fill: BLACK;
+}
+
+.TextFieldItems{
+
+    -fx-border-color: BLACK;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-background-color: white;
+    -fx-text-alignment: CENTER;
+
+}

@@ -3,7 +3,6 @@ package com.tucarro.model;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 
 
@@ -27,16 +26,15 @@ public class Concesionario {
         Administrador admin = new Administrador("admin", "admin");
         Empleado empleado1 = new Empleado("user1", "123");
 
-        listaAdministradores.add( admin);
+        listaAdministradores.add(admin);
         listaEmpleados.add(empleado1);
 
     }
 
-
     /**
-     * This method obtain singleton
+     * Este metodo permite obtener solo una instancia de concesionario
      *
-     * @return
+     * @return la unica instancia del concesionario
      */
     public static Concesionario getInstance() {
 
@@ -44,16 +42,6 @@ public class Concesionario {
         return concesionario;
 
     }
-
-
-    public boolean iniciarSesion(String usuario, String contrasenia) {
-        for (Empleado empleado : listaEmpleados) {
-            if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)) return true;
-
-        }
-        return false;
-    }
-
 
     /**
      * Método encargado de registrar un nuevo empleado.
@@ -83,12 +71,12 @@ public class Concesionario {
      * Este metodo actualiza los datos de un empleado y retorna un true al comparar los datos enviados
      * y false si ningún dato es correcto retorna un false
      *
-     * @param nombre
-     * @param apellido
-     * @param cedula
-     * @param email
-     * @param contrasenia
-     * @return
+     * @param nombre      nombre del empleado a actualizar
+     * @param apellido    apellido del empleado a actualizar
+     * @param cedula      cedula del empleado a actualizar
+     * @param email       email del empleado a actualizar
+     * @param contrasenia contrasenia del empleado a actualizar
+     * @return true si se pudo actualizar, false si no se encontró el cliente
      */
     public boolean actualizarDatosEmpleado(String nombre, String apellido, String cedula, String email, String contrasenia) {
 
@@ -124,6 +112,12 @@ public class Concesionario {
         return true;
     }
 
+    /**
+     * Este método permite obtener un cliente por la cedula
+     *
+     * @param cedula atributo por el que se va a obtener el cliente
+     * @return el cliente con esa cedula
+     */
     public Cliente getClienteByCedula(String cedula) {
         for (Cliente cliente : listaClientes) {
             if (cliente.compararCedula(cedula)) return cliente;
@@ -139,10 +133,9 @@ public class Concesionario {
      * @param cedula         la cedula del cliente
      * @param email          el email del cliente
      * @param contrasenia    la contrasenia del cliente
-     * @param estadoEmpleado el estado del cliente
      * @return true si se actualiza el cliente, false si no se actualiza
      */
-    public boolean actualizarDatosCliente(String nombre, String apellido, String cedula, String email, String contrasenia, String estadoEmpleado) {
+    public boolean actualizarDatosCliente(String nombre, String apellido, String cedula, String email, String contrasenia) {
 
         for (Cliente cliente : listaClientes) {
             if (cliente.compararCedula(cedula)) {
@@ -150,7 +143,6 @@ public class Concesionario {
                 cliente.setApellido(apellido);
                 cliente.setEmail(email);
                 cliente.setContrasenia(contrasenia);
-                cliente.setEstado(estadoEmpleado);
                 return true;
             }
         }
@@ -177,28 +169,25 @@ public class Concesionario {
      *
      * @param usuario     el usuario que inicia sesion
      * @param contrasenia la contrasenia del usuario
-     * @param rolUsuario  el rol del usuario
      * @return true si el usuario inicia sesion, false si no inicia sesion
      */
-    public boolean login(String usuario, String contrasenia, String rolUsuario) {
-        switch (rolUsuario) {
-            case "cliente" -> {
-                for (Cliente cliente : listaClientes) {
-                    if (cliente.compararEmail(usuario) && cliente.compararContrasenia(contrasenia)) return true;
-                }
-            }
-            case "Empleado" -> {
-                for (Empleado empleado : listaEmpleados) {
-                    if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)) return true;
-                }
-            }
-            case "Administrador" -> {
-                for (Administrador administrador : listaAdministradores) {
-                    if (administrador.compararEmail(usuario) && administrador.compararContrasenia(contrasenia))
-                        return true;
-                }
-            }
+    public String login(String usuario, String contrasenia) {
+
+        for (Cliente cliente : listaClientes) {
+            if (cliente.compararEmail(usuario) && cliente.compararContrasenia(contrasenia)) return "Cliente";
         }
-        return false;
+
+
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)) return "Empleado";
+        }
+
+
+        for (Administrador administrador : listaAdministradores) {
+            if (administrador.compararEmail(usuario) && administrador.compararContrasenia(contrasenia))
+                return "Administrador";
+        }
+
+        return "";
     }
 }
