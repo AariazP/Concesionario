@@ -7,14 +7,14 @@ public class Empleado extends Persona{
     //Atributos
     enum estadoEmpleado {ACTIVO, BLOQUEADO};
     public estadoEmpleado estado;
-    ArrayList<Empleado> reportes = new ArrayList<Empleado>();
+    ArrayList<Empleado> reportes = new ArrayList<>();
 
     //Constructores
     public Empleado(String email, String contraseña){
         super(email, contraseña);
     }
-    public Empleado(String nombre, String apellido, String cedula, String email, String contraseña){
-        super(nombre, apellido, cedula, email, contraseña);
+    public Empleado(String nombre, String apellido, String cedula, String email, String contrasenia){
+        super(nombre, apellido, cedula, email, contrasenia);
     }
     public Empleado(String nombre, String apellido, String cedula, String email, String contraseña, estadoEmpleado estado, ArrayList<Empleado> reportes){
         super(nombre, apellido, cedula, email, contraseña);

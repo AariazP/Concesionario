@@ -26,6 +26,22 @@ public class AdminController {
     @FXML
     private PasswordField txtContrasenia;
 
+    @FXML
+    private ChoiceBox<?> estadoEmpleado;
+    @FXML
+    private TextField txtApellidoEmpleado;
+    @FXML
+    private TextField txtCedulaEmpleado;
+
+    @FXML
+    private PasswordField txtContraseniaEmpleado;
+
+    @FXML
+    private TextField txtEmailEmpleado;
+
+    @FXML
+    private TextField txtNombreEmpleado;
+
     private  Button btnRegistrar, btnActualizar, btnEliminar;
     @FXML private TableView<Cliente> tblClientes;
     //Declarar las columnas de la tabla
@@ -204,6 +220,24 @@ public class AdminController {
 
     @FXML
     void crearEmpleado(ActionEvent event) {
+
+        String nombreEmpleado = txtNombreEmpleado.getText();
+        String apellidoEmpleado = txtApellidoEmpleado.getText();
+        String cedulaEmpleado = txtCedulaEmpleado.getText();
+        String emailEmpleado = txtEmailEmpleado.getText();
+        String contraseniaEmpleado = txtContraseniaEmpleado.getText();
+
+        Empleado empleado = new Empleado(nombreEmpleado, apellidoEmpleado, cedulaEmpleado, emailEmpleado, contraseniaEmpleado);
+
+
+        if(Concesionario.getInstance().crearEmpleado(empleado)){
+            Application.getApplication().mostrarAlerta("Empleado creado con éxito");
+            //refrescarTablaEmpleado();
+           // limpiarCamposEmpleado();
+        }else {
+            Application.getApplication().mostrarAlerta("Ya existe un usuario con estos datos.");
+        }
+
 
     }
 

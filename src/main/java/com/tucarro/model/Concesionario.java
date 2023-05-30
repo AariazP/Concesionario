@@ -22,10 +22,8 @@ public class Concesionario {
         listaEmpleados = new ArrayList<>();
         listaVehiculos = new ArrayList<>();
         listaAdministradores = new ArrayList<>();
-
         Administrador admin = new Administrador("admin", "admin");
         Empleado empleado1 = new Empleado("user1", "123");
-
         listaAdministradores.add(admin);
         listaEmpleados.add(empleado1);
 
@@ -189,5 +187,21 @@ public class Concesionario {
         }
 
         return "";
+    }
+
+    /**
+     * Este metodo permite crear un empleado validando la cedula
+     * @param empleado el empleado a crear
+     * @return true si se crea el empleado, false si no se crea
+     */
+    public boolean crearEmpleado(Empleado empleado) {
+
+        for (Empleado empleadoAux : listaEmpleados) {
+            if (empleadoAux.getCedula() != null && empleadoAux.compararCedula(empleado.getCedula())) return false;
+        }
+
+        listaEmpleados.add(empleado);
+        return true;
+
     }
 }

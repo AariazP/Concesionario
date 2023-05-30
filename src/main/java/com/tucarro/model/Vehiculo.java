@@ -17,6 +17,10 @@ public abstract class Vehiculo{
 
     private DisponibilidadVehiculo disponibilidadVehiculo;
 
+    public Vehiculo() {
+
+    }
+
     //Constructor
     public Vehiculo(TipoCombustible combustible,TipoTransmision transmision, String marca, String modelo, EstadoVehiculo estadoVehiculo, int cantCambios, int velocidadMaxima, int cilindraje,
                      String[] fotos, TipoABS tieneAbs,String placa,

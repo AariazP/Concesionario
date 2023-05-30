@@ -7,6 +7,10 @@ public class Bus extends Automovil{
 	private int numEjes;
 	private int numSalidasEmergencia;
 	private double capacidadMaletero;
+
+	public Bus() {
+		super();
+	}
 	
 	public Bus(TipoCombustible combustible, TipoTransmision transmision, String marca, String modelo,
 			EstadoVehiculo estadoVehiculo, int velocidadMaxima, int cantCambios, int cilindraje, String[] fotos,

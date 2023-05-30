@@ -12,6 +12,12 @@ public abstract class Automovil extends Vehiculo {
 	private int numBolsasAire;
 	private TipoPermanencia asistentePermanencia;
 	private TipoAcondicionado aireAcondicionado;
+
+	public Automovil() {
+
+	}
+
+
 	
 	public Automovil( TipoCombustible combustible, TipoTransmision transmision, String marca, String modelo,
 			EstadoVehiculo estadoVehiculo, int velocidadMaxima, int cantCambios, int cilindraje, String[] fotos,

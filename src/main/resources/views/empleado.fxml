@@ -27,13 +27,13 @@
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                             </content>
                         </Tab>
-                        <Tab text="Ingresar vehículos">
+                        <Tab text="Ingresar Automoviles">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="580.0" prefWidth="858.0">
                                     <children>
                                         <ScrollPane layoutX="25.0" layoutY="45.0" prefHeight="524.0" prefWidth="381.0" style="-fx-border-color: Transparent;" vvalue="1.0">
                                             <content>
-                                                <AnchorPane prefHeight="934.0" prefWidth="348.0" styleClass="PaneItems">
+                                                <AnchorPane prefHeight="1071.0" prefWidth="348.0" styleClass="PaneItems">
                                                     <children>
                                                         <VBox prefHeight="513.0" prefWidth="346.0">
                                                             <children>
@@ -187,6 +187,26 @@
                                                       <Insets left="30.0" />
                                                    </VBox.margin>
                                                 </ComboBox>
+                                                <Label layoutX="120.0" layoutY="790.0" styleClass="LabelItems" text="Tiene  sensor colisión">
+                                                   <VBox.margin>
+                                                      <Insets left="110.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <ComboBox layoutX="40.0" layoutY="807.0" prefHeight="26.0" prefWidth="279.0" promptText="Tiene sensor de tráfico" styleClass="CmbItem">
+                                                   <VBox.margin>
+                                                      <Insets left="30.0" />
+                                                   </VBox.margin>
+                                                </ComboBox>
+                                                <Label layoutX="120.0" layoutY="845.0" styleClass="LabelItems" text="Número de bolsas de aire">
+                                                   <VBox.margin>
+                                                      <Insets left="100.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField layoutX="40.0" layoutY="697.0" promptText="Numero de bolsas de aire" styleClass="TextFieldItems">
+                                                   <VBox.margin>
+                                                      <Insets left="30.0" right="30.0" />
+                                                   </VBox.margin>
+                                                </TextField>
 
                                                             </children>
                                                         </VBox>
@@ -223,6 +243,11 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+                  <Tab text="Ingresar Moto">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
                         <Tab text="Inventario">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -237,6 +262,11 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
+                  <Tab text="Gestionar empleado">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
                     </tabs>
                 </TabPane>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e3b80e7a" height="50.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="938.0" />
