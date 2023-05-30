@@ -1,20 +1,17 @@
-package com.tucarro.interfaz;
+package com.tucarro.controllers;
 
 import com.tucarro.application.Application;
 import com.tucarro.model.Login;
 import com.tucarro.utilities.Paths;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
@@ -64,17 +61,10 @@ public class LoginController implements Initializable {
                     Application.getApplication().loadStage(Paths.ADMINISTRADOR);
 
                 }else if (rolUsuario.equals("Empleado")){
-                    FXMLLoader empleado = new FXMLLoader(getClass().getResource("empleado.fxml"));
-                    Parent root = empleado.load();
-                    EmpleadoController emControlador = empleado.getController();
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.setTitle("Empleado");
-                    stage.showAndWait();
+                    Application.getApplication().loadStage(Paths.EMPLEADO);
                 }
 
-            } else if (acceso == false) {
+            } else {
                 JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos, intente nuevamente.", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             }
         } else {

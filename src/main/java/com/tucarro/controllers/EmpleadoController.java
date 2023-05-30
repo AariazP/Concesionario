@@ -1,4 +1,4 @@
-package com.tucarro.Controllers;
+package com.tucarro.controllers;
 
 public class EmpleadoController {
 }
