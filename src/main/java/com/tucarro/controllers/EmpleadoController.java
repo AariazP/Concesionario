@@ -4,12 +4,15 @@ import com.tucarro.application.Application;
 import com.tucarro.model.*;
 import com.tucarro.utilities.MethodsUtilities;
 import com.tucarro.utilities.Paths;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class EmpleadoController {
@@ -134,7 +137,21 @@ public class EmpleadoController {
 
     @FXML
     private TextField txtVelocidadMax;
-
+    @FXML
+    private TableView<Cliente> tblClientes;
+    @FXML
+    private TableColumn<Cliente, String> colNombre;
+    @FXML
+    private TableColumn<Cliente, String> colApellido;
+    @FXML
+    private TableColumn<Cliente, String> colCedula;
+    @FXML
+    private TableColumn<Cliente, String> colEmail;
+    @FXML
+    private TableColumn<Cliente, String> colContrasenia;
+    @FXML
+    private TableColumn<Cliente, String> colEstado;
+    private ObservableList<Cliente> clientesObservableList = FXCollections.observableArrayList();
     private String marca;
     private String modelo;
     private int cantCambios;
@@ -155,14 +172,56 @@ public class EmpleadoController {
     private TipoAcondicionado aireAcondicionado;
     private int numeroBolsasAire;
 
+    @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtApellido;
+    @FXML
+    private TextField txtCedula;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private TextField txtBuscar;
+    @FXML
+    private PasswordField txtContrasenia;
+    @FXML
+    private ChoiceBox<?> estadoEmpleado;
+    @FXML
+    private Button btnActualizar, btnEliminar, btnRegistrar;
+
+
 
     @FXML
-    void guardarBus(ActionEvent event) {
+    void guardarBus(ActionEvent ignoredEvent) {
+
+        if (verificarCampos()) {
+            cargarCampos();
+            if (!txtNumeroEjesBus.getText().isEmpty()
+                    && !txtNumeroSalidasEmergenciaBus.getText().isEmpty()) {
+
+                Bus bus = new Bus();
+                bus.setNumEjes(Integer.parseInt(txtNumeroEjesBus.getText()));
+                bus.setNumSalidasEmergencia(Integer.parseInt(txtNumeroSalidasEmergenciaBus.getText()));
+                addAtributosAutomovil(bus);
+
+                Concesionario.getInstance().agregarVehiculo(bus);
+                Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
+                limpiarCamposAutomovil();
+                limpiarCamposCamion();
+            } else {
+                Application.getApplication().mostrarAlerta("Faltan campos por llenar en Sedan");
+            }
+
+
+        } else {
+            Application.getApplication().mostrarAlerta("Faltan campos por llenar en vehiculo");
+        }
+
 
     }
 
     @FXML
-    void guardarCamion(ActionEvent event) {
+    void guardarCamion(ActionEvent ignoredEvent) {
         if (verificarCampos()) {
             cargarCampos();
             if (!txtCapacidadCargaCamion.getText().isEmpty()
@@ -199,7 +258,7 @@ public class EmpleadoController {
     }
 
     @FXML
-    void guardarDeportivo(ActionEvent event) {
+    void guardarDeportivo(ActionEvent ignoredEvent) {
         if (verificarCampos()) {
             cargarCampos();
             if (!txtNumeroCaballosDeportivo.getText().isEmpty()
@@ -234,7 +293,7 @@ public class EmpleadoController {
                 Pick_Up pick = new Pick_Up();
                 pick.setEs4x4(MethodsUtilities.getTipo4x4PickUp(cmbTipo4X4PickUp.getValue()));
                 pick.setCapacidadCajaCarga(Double.parseDouble(cmbCapacidadEjeCarga.getText()));
-                addAtributosVan(pick);
+                addAtributosAutomovil(pick);
                 Concesionario.getInstance().agregarVehiculo(pick);
                 Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
                 limpiarCamposAutomovil();
@@ -300,11 +359,11 @@ public class EmpleadoController {
         cmbAsistentePermanencia.setValue(null);
         cmbAireAcondicionado.setValue(null);
         txtNumeroBolsasAire.clear();
-        img1.setImage(null);
-        img2.setImage(null);
-        img3.setImage(null);
-        img4.setImage(null);
-        img5.setImage(null);
+        img1.setImage(new Image("file:src/main/resources/images/withOutImage.png"));
+        img2.setImage(new Image("file:src/main/resources/images/withOutImage.png"));
+        img3.setImage(new Image("file:src/main/resources/images/withOutImage.png"));
+        img4.setImage(new Image("file:src/main/resources/images/withOutImage.png"));
+        img5.setImage(new Image("file:src/main/resources/images/withOutImage.png"));
     }
 
     private String[] obtenerImages() {
@@ -330,7 +389,7 @@ public class EmpleadoController {
                 suv.setCapacidadMaletero(Double.parseDouble(txtCapacidadMaleteroSuv.getText()));
                 suv.setVelocidadCrucero(MethodsUtilities.getVelocidadCrucero(cmbCapacidadCruceroSuv.getValue()));
                 suv.setEs4x4(MethodsUtilities.getTipo4x4(cmbTipo4X4Suv.getValue()));
-                addAtributosVan(suv);
+                addAtributosAutomovil(suv);
 
                 Concesionario.getInstance().agregarVehiculo(suv);
                 limpiarCamposAutomovil();
@@ -361,7 +420,7 @@ public class EmpleadoController {
             if(!txtCapacidadMaleteroVan.getText().isEmpty()){
 
                 Van van = new Van();
-                addAtributosVan(van);
+                addAtributosAutomovil(van);
                 van.setCapacidadMaletero(Double.parseDouble(txtCapacidadMaleteroVan.getText()));
 
                 Concesionario.getInstance().agregarVehiculo(van);
@@ -452,6 +511,169 @@ public class EmpleadoController {
 
 
     }
+    /**
+     * Metodo que limpia la tabla
+     */
+    private void vaciarTabla() {
+        clientesObservableList.clear();
+        tblClientes.getItems().clear();
+        tblClientes.refresh();
+    }
+
+    /**
+     * Metodo que refresca la tabla con un solo cliente
+     * @param cliente el que se va a mostrar
+     */
+    private void refrescarTabla(Cliente cliente){
+
+        tblClientes.getItems().clear();
+        clientesObservableList.clear();
+        clientesObservableList.add(cliente);
+        tblClientes.getItems().addAll(clientesObservableList);
+        tblClientes.refresh();
+
+    }
+
+
+    /**
+     * Metodo que permite buscar un cliente por su cedula
+     * @param event que se genera al hacer escribir en el campo de texto
+     */
+    @FXML
+    public void buscar(KeyEvent event){
+        String cedula = txtBuscar.getText();
+
+        if(cedula.isEmpty()){
+            refrescarTabla();
+        }else {
+            Cliente cliente = Concesionario.getInstance().getClienteByCedula(cedula);
+            if(cliente != null) refrescarTabla(cliente);
+            else vaciarTabla();
+        }
+    }
+
+
+
+
+
+    /**
+     * Metodo que crea un cliente en el modelo
+     * @param event que generado al hacer click
+     */
+    @FXML
+    public void crearCliente(ActionEvent event){
+
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String cedula = txtCedula.getText();
+        String email = txtEmail.getText();
+        String contrasenia = txtContrasenia.getText();
+
+        Cliente cliente = new Cliente(nombre, apellido, cedula, email, contrasenia);
+
+
+
+        if (!nombre.isEmpty() && !apellido.isEmpty() && !cedula.isEmpty()
+                && !email.isEmpty() && !contrasenia.isEmpty()) {
+
+            if(Concesionario.getInstance().crearCliente(cliente)){
+
+                Application.getApplication().mostrarAlerta("Cliente creado con éxito");
+                refrescarTabla();
+                limpiarCampos();
+
+            } else {
+
+                Application.getApplication().mostrarAlerta("Ya existe un usuario con estos datos.");
+
+            }
+        }else {
+            Application.getApplication().mostrarAlerta("Por favor rellene todos los campos");
+        }
+    }
+
+    /**
+     * Este método refresca la tabla de usuarios, mostrando los que están registrados
+     */
+    private void refrescarTabla() {
+
+        tblClientes.getItems().clear();
+        clientesObservableList.clear();
+        clientesObservableList.addAll(Concesionario.getInstance().getListaClientes());
+        tblClientes.getItems().addAll(clientesObservableList);
+        tblClientes.refresh();
+
+    }
+
+    /**
+     * Este metodo permite actualizar los datos de un cliente
+     */
+    @FXML
+    public void actualizarCliente(ActionEvent event){
+
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String cedula = txtCedula.getText();
+        System.out.println("cedula = " + cedula);
+        String email = txtEmail.getText();
+        String contrasenia = txtContrasenia.getText();
+
+        if(Concesionario.getInstance().actualizarDatosCliente(nombre, apellido, cedula, email, contrasenia)){
+            tblClientes.refresh();
+            Application.getApplication().mostrarAlerta("Cliente actualizado con éxito");
+        }else {
+            Application.getApplication().mostrarAlerta("No se pudo actualizar el cliente, verifique la cedula sea la correcta");
+        }
+
+    }
+
+    /**
+     * Metodo que carga los campos de texto con los datos del cliente seleccionado
+     * @param cliente que se va a mostrar
+     */
+    private void cargarCampos(Cliente cliente) {
+
+        txtNombre.setText(cliente.getNombre());
+        txtApellido.setText(cliente.getApellido());
+        txtCedula.setText(cliente.getCedula());
+        txtEmail.setText(cliente.getEmail());
+        txtContrasenia.setText(cliente.getContrasenia());
+        btnActualizar.setDisable(false);
+        btnEliminar.setDisable(false);
+        btnRegistrar.setDisable(true);
+
+
+    }
+
+    /**
+     * Metodo que permite eliminar un cliente
+     * @param event que se genera al hacer click
+     */
+    @FXML
+    public void eliminarCliente(ActionEvent event){
+
+        Cliente cliente = tblClientes.getSelectionModel().getSelectedItem();
+        Concesionario.getInstance().eliminarCliente(cliente.getCedula());
+        refrescarTabla();
+    }
+
+
+    /**
+     * Metodo que limpia los campos de texto de la vista
+     */
+    @FXML
+    public void limpiarCampos(){
+        //Limpia los campos para realizar un nuevo registro
+        txtBuscar.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtCedula.setText("");
+        txtEmail.setText("");
+        txtContrasenia.setText("");
+        btnActualizar.setDisable(true);//permite que solo el boton de registrar se active
+        btnEliminar.setDisable(true);
+        btnRegistrar.setDisable(false);
+    }
 
 
     /**
@@ -502,6 +724,18 @@ public class EmpleadoController {
         cmbTipoCamion.getItems().addAll("Volqueta", "Remolque", "Tanque");
         cmbTipo4X4PickUp.getItems().addAll("Si", "No");
         cmbTipo4X4Suv.getItems().addAll("Si", "No");
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colContrasenia.setCellValueFactory(new PropertyValueFactory<>("contrasenia"));
+        tblClientes.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Cliente itemSeleccionado = tblClientes.getSelectionModel().getSelectedItem();
+                if(itemSeleccionado != null) cargarCampos(itemSeleccionado);
+            }
+        });
+        refrescarTabla();
 
     }
 }
