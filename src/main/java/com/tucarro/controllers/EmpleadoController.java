@@ -200,6 +200,28 @@ public class EmpleadoController {
 
     @FXML
     void guardarDeportivo(ActionEvent event) {
+        if (verificarCampos()) {
+            cargarCampos();
+            if (!txtNumeroCaballosDeportivo.getText().isEmpty()
+                    && !txtTiempo0a100Deportivo.getText().isEmpty()) {
+
+                Deportivo deportivo = new Deportivo();
+                deportivo.setNumCaballosFuerza(Integer.parseInt(txtNumeroCaballosDeportivo.getText()));
+                deportivo.setTiempo0_100(Double.parseDouble(txtTiempo0a100Deportivo.getText()));
+
+                addAtributosAutomovil(deportivo);
+                Concesionario.getInstance().agregarVehiculo(deportivo);
+                Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
+                limpiarCamposAutomovil();
+                limpiarCamposDeportivo();
+            } else {
+                Application.getApplication().mostrarAlerta("Faltan campos por llenar en Sedan");
+            }
+        }
+    }
+
+    //TODO
+    private void limpiarCamposDeportivo() {
 
     }
 
@@ -238,7 +260,7 @@ public class EmpleadoController {
                 sedan.setCapacidadMaletero(Double.parseDouble(txtCapacidadMaleteroSedan.getText()));
                 //TODO: Hay enums con valores extraños
                 sedan.setVelocidadCrucero(MethodsUtilities.getVelocidadCrucero(cmbVelocidadCruceroSedan.getValue()));
-                addAtributosVan(sedan);
+                addAtributosAutomovil(sedan);
                 Concesionario.getInstance().agregarVehiculo(sedan);
                 Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
                 limpiarCamposAutomovil();
@@ -360,7 +382,7 @@ public class EmpleadoController {
     private void limpiarCamposVan() {
     }
 
-    private void addAtributosVan(Automovil automovil) {
+    private void addAtributosAutomovil(Automovil automovil) {
 
         automovil.setMarca(marca);
         automovil.setModelo(modelo);
