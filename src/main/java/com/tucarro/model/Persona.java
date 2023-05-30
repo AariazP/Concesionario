@@ -21,7 +21,7 @@ public abstract class Persona {
         this.email = email;
         this.contrasenia = contrasenia;
     }
-    public Persona(String nombre, String apellido, String cedula, String email, String contraseña){
+    public Persona(String nombre, String apellido, String cedula, String email, String contrasenia){
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;

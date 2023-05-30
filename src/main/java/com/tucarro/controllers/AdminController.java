@@ -13,7 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javax.swing.*;
 
 public class AdminController {
-    
+
     @FXML
     private TextField txtBuscar;
     @FXML
@@ -158,7 +158,8 @@ public class AdminController {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-        String cedula = txtBuscar.getText();
+        String cedula = txtCedula.getText();
+        System.out.println("cedula = " + cedula);
         String email = txtEmail.getText();
         String contrasenia = txtContrasenia.getText();
         String estadoEmpleado = estado.getValue();
@@ -184,6 +185,9 @@ public class AdminController {
         txtEmail.setText(cliente.getEmail());
         txtContrasenia.setText(cliente.getContrasenia());
         estado.setValue(cliente.getEstado());
+        btnActualizar.setDisable(false);
+        btnEliminar.setDisable(false);
+        btnRegistrar.setDisable(true);
 
 
     }
