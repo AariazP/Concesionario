@@ -10,8 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 
-import javax.swing.*;
-
 public class AdminController {
 
     @FXML
@@ -53,7 +51,7 @@ public class AdminController {
         if(cedula.isEmpty()){
             refrescarTabla();
         }else {
-            Cliente cliente = Concesionario.getInstance().getCliente(cedula);
+            Cliente cliente = Concesionario.getInstance().getClienteByCedula(cedula);
             if(cliente != null) refrescarTabla(cliente);
             else vaciarTabla();
         }

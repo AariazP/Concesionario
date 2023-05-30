@@ -1,23 +1,19 @@
 package com.tucarro.controllers;
 
 import com.tucarro.application.Application;
-import com.tucarro.model.Login;
+import com.tucarro.model.Concesionario;
 import com.tucarro.utilities.Paths;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
-import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController {
     @FXML
     private TextField txtUser;
     @FXML
@@ -28,8 +24,8 @@ public class LoginController implements Initializable {
     private Button btnLogin;
     //-------------------------------------Métodos------------------------------------------------
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
         rol.getItems().addAll("Administrador", "Empleado");   //Agrega valores al ChoiceBox
     }
 
@@ -53,10 +49,9 @@ public class LoginController implements Initializable {
             String contrasenia = txtPassword.getText();
             String rolUsuario = rol.getValue();
 
-            Login login = new Login();
-            acceso = login.iniciarSesion(usuario, contrasenia);
 
-            if (acceso) {
+
+            if (Concesionario.getInstance().login(usuario, contrasenia, rolUsuario)) {
                 if(rolUsuario.equals("Administrador")){
                     Application.getApplication().loadStage(Paths.ADMINISTRADOR);
 
@@ -65,10 +60,10 @@ public class LoginController implements Initializable {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Datos de acceso incorrectos, intente nuevamente.", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                Application.getApplication().mostrarAlerta("Datos de acceso incorrectos, intente nuevamente.");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Error al iniciar sesión, ingrese sus datos de acceso.", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            Application.getApplication().mostrarAlerta("Debe ingresar todos los datos.");
         }
     }
 

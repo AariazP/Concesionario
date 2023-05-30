@@ -14,6 +14,7 @@ public class Concesionario {
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Vehiculo> listaVehiculos;
     private ArrayList<Cliente> listaClientes;
+    private ArrayList<Administrador> listaAdministradores;
     public static Concesionario concesionario;
 
 
@@ -21,6 +22,14 @@ public class Concesionario {
         listaClientes = new ArrayList<>();
         listaEmpleados = new ArrayList<>();
         listaVehiculos = new ArrayList<>();
+        listaAdministradores = new ArrayList<>();
+
+        Administrador admin = new Administrador("admin", "admin");
+        Empleado empleado1 = new Empleado("user1", "123");
+
+        listaAdministradores.add( admin);
+        listaEmpleados.add(empleado1);
+
     }
 
 
@@ -115,7 +124,7 @@ public class Concesionario {
         return true;
     }
 
-    public Cliente getCliente(String cedula) {
+    public Cliente getClienteByCedula(String cedula) {
         for (Cliente cliente : listaClientes) {
             if (cliente.compararCedula(cedula)) return cliente;
         }
@@ -124,11 +133,12 @@ public class Concesionario {
 
     /**
      * Este metodo actualiza los datos de un cliente y retorna un true al comparar los datos enviados
-     * @param nombre el nombre del cliente
-     * @param apellido el apellido del cliente
-     * @param cedula la cedula del cliente
-     * @param email el email del cliente
-     * @param contrasenia la contrasenia del cliente
+     *
+     * @param nombre         el nombre del cliente
+     * @param apellido       el apellido del cliente
+     * @param cedula         la cedula del cliente
+     * @param email          el email del cliente
+     * @param contrasenia    la contrasenia del cliente
      * @param estadoEmpleado el estado del cliente
      * @return true si se actualiza el cliente, false si no se actualiza
      */
@@ -150,6 +160,7 @@ public class Concesionario {
 
     /**
      * Este metodo elimina un cliente de la lista de clientes
+     *
      * @param cedula la cedula del cliente a eliminar
      */
     public void eliminarCliente(String cedula) {
@@ -159,5 +170,35 @@ public class Concesionario {
                 break;
             }
         }
+    }
+
+    /**
+     * Este metodo permite iniciar sesion en el sistema
+     *
+     * @param usuario     el usuario que inicia sesion
+     * @param contrasenia la contrasenia del usuario
+     * @param rolUsuario  el rol del usuario
+     * @return true si el usuario inicia sesion, false si no inicia sesion
+     */
+    public boolean login(String usuario, String contrasenia, String rolUsuario) {
+        switch (rolUsuario) {
+            case "cliente" -> {
+                for (Cliente cliente : listaClientes) {
+                    if (cliente.compararEmail(usuario) && cliente.compararContrasenia(contrasenia)) return true;
+                }
+            }
+            case "Empleado" -> {
+                for (Empleado empleado : listaEmpleados) {
+                    if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)) return true;
+                }
+            }
+            case "Administrador" -> {
+                for (Administrador administrador : listaAdministradores) {
+                    if (administrador.compararEmail(usuario) && administrador.compararContrasenia(contrasenia))
+                        return true;
+                }
+            }
+        }
+        return false;
     }
 }
