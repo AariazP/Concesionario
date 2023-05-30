@@ -1,6 +1,14 @@
 package com.tucarro.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Arrays;
+
+@Getter
+@Setter
+@ToString
 
 public class Sedan extends Automovil{
 	
@@ -20,39 +28,6 @@ public class Sedan extends Automovil{
 		this.velocidadCrucero = velocidadCrucero;
 	}
 	
-	@Override
-	public void ToString() {
-		System.out.println( "Sedan [capacidadMaletero=" + capacidadMaletero + ", velocidadCrucero=" + velocidadCrucero
-				+ ", getCapacidadMaletero()=" + getCapacidadMaletero() + ", getVelocidadCrucero()="
-				+ getVelocidadCrucero() + ", getNumPasajeros()=" + getNumPasajeros() + ", getNumPuertas()="
-				+ getNumPuertas() + ", getTieneCamara()=" + getTieneCamara() + ", getTieneSensorTrafico()="
-				+ getTieneSensorTrafico() + ", getTieneSensorColision()=" + getTieneSensorColision()
-				+ ", getNumBolsasAire()=" + getNumBolsasAire() + ", getAsistentePermanencia()="
-				+ getAsistentePermanencia() + ", getAireAcondicionado()=" + getAireAcondicionado()
-				+ ", getCombustible()=" + getCombustible() + ", getTransmision()=" + getTransmision() + ", getMarca()="
-				+ getMarca() + ", getModelo()=" + getModelo() + ", getEstadoVehiculo()=" + getEstadoVehiculo()
-				+ ", getVelocidadMaxima()=" + getVelocidadMaxima() + ", getCantCambios()=" + getCambios()
-				+ ", getCilindraje()=" + getCilindraje() + ", getFotos()=" + Arrays.toString(getFotos())
-				+ ", getTieneAbs()=" + getAbs() + ", getPlaca()=" + getPlaca() + ", getDisponibilidad()="
-				+ getDisponibilidadVehiculo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]");
-	}
-
-	public double getCapacidadMaletero() {
-		return capacidadMaletero;
-	}
-
-	public void setCapacidadMaletero(double capacidadMaletero) {
-		this.capacidadMaletero = capacidadMaletero;
-	}
-
-	public TipoVelocidad getVelocidadCrucero() {
-		return velocidadCrucero;
-	}
-
-	public void setVelocidadCrucero(TipoVelocidad velocidadCrucero) {
-		this.velocidadCrucero = velocidadCrucero;
-	}
 
 
 }

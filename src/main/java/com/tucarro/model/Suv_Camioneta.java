@@ -1,7 +1,13 @@
 package com.tucarro.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
+
+@Getter
+@Setter
 public class Suv_Camioneta extends Automovil{
 	
 	private double capacidadMaletero;
@@ -22,49 +28,5 @@ public class Suv_Camioneta extends Automovil{
 		this.es4x4 = es4x4;
 	}
 
-	@Override
-	public void ToString() {
-		System.out.println( "Suv_Camioneta [capacidadMaletero=" + capacidadMaletero + ", velocidadCrucero=" + velocidadCrucero
-				+ ", es4x4=" + es4x4 + ", getNumPasajeros()=" + getNumPasajeros() + ", getNumPuertas()="
-				+ getNumPuertas() + ", getTieneCamara()=" + getTieneCamara() + ", getTieneSensorTrafico()="
-				+ getTieneSensorTrafico() + ", getTieneSensorColision()=" + getTieneSensorColision()
-				+ ", getNumBolsasAire()=" + getNumBolsasAire() + ", getAsistentePermanencia()="
-				+ getAsistentePermanencia() + ", getAireAcondicionado()=" + getAireAcondicionado()
-				+ ", getCombustible()=" + getCombustible() + ", getTransmision()=" + getTransmision() + ", getMarca()="
-				+ getMarca() + ", getModelo()=" + getModelo() + ", getEstadoVehiculo()=" + getEstadoVehiculo()
-				+ ", getVelocidadMaxima()=" + getVelocidadMaxima() + ", getCantCambios()=" + getCambios()
-				+ ", getCilindraje()=" + getCilindraje() + ", getFotos()=" + Arrays.toString(getFotos())
-				+ ", getTieneAbs()=" + getAbs() + ", getPlaca()=" + getPlaca() + ", getDisponibilidad()="
-				+ getDisponibilidadVehiculo() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]");
-	}
 
-	public double getCapacidadMaletero() {
-		return capacidadMaletero;
-	}
-
-	public void setCapacidadMaletero(double capacidadMaletero) {
-		this.capacidadMaletero = capacidadMaletero;
-	}
-
-	public TipoVelocidad getVelocidadCrucero() {
-		return velocidadCrucero;
-	}
-
-	public void setVelocidadCrucero(TipoVelocidad velocidadCrucero) {
-		this.velocidadCrucero = velocidadCrucero;
-	}
-
-	public Tipo4x4 getEs4x4() {
-		return es4x4;
-	}
-
-	public void setEs4x4(Tipo4x4 es4x4) {
-		this.es4x4 = es4x4;
-	}
-	
-	@Override
-	public String toString() {
-		return null;
-	}
 }

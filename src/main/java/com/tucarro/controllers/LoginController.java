@@ -8,15 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-
 import java.io.IOException;
 
 public class LoginController {
+
     @FXML
     private TextField txtUser;
     @FXML
     private PasswordField txtPassword;
-    //-------------------------------------Métodos------------------------------------------------
 
     @FXML
     public void initialize() {

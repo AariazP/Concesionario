@@ -49,3 +49,32 @@
 
 
 }
+
+
+.Paneimages{
+
+    -fx-background-color: rgba(227, 184, 14, 0.48);
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+
+}
+
+
+.imageviewStyle{
+
+    -fx-border-color: WHITE;
+    -fx-border-radius: 30;
+
+
+}
+
+
+.ButtonCargarVehiculo{
+
+    -fx-background-color: rgba(227, 184, 14, 0.48);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: BLACK;
+    -fx-cursor: HAND;
+
+}
