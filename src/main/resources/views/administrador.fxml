@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="664.0" prefWidth="938.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.AdminController">
+<AnchorPane prefHeight="664.0" prefWidth="938.0" stylesheets="@../styles/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.AdminController">
    <children>
       <HBox layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="938.0">
          <children>
@@ -343,12 +343,12 @@
                                           </VBox>
                                           <TableView fx:id="tblEmpleados" prefHeight="422.0" prefWidth="442.0">
                                              <columns>
-                                                <TableColumn fx:id="colNombre1" prefWidth="75.0" text="Nombres" />
-                                                <TableColumn fx:id="colApellido1" prefWidth="75.0" text="Apellidos" />
-                                                <TableColumn fx:id="colCedula1" prefWidth="75.0" text="Cedula" />
-                                                <TableColumn fx:id="colEmail1" prefWidth="75.0" text="Email" />
-                                                <TableColumn fx:id="colContrasenia1" prefWidth="75.0" text="Contraseña" />
-                                                <TableColumn fx:id="colEstado1" prefWidth="65.0" text="Estado" />
+                                                <TableColumn fx:id="colNombreEmpleado" prefWidth="75.0" text="Nombres" />
+                                                <TableColumn fx:id="colApellidoEmpleado" prefWidth="75.0" text="Apellidos" />
+                                                <TableColumn fx:id="colCedulaEmpleado" prefWidth="75.0" text="Cedula" />
+                                                <TableColumn fx:id="colEmailEmpleado" prefWidth="75.0" text="Email" />
+                                                <TableColumn fx:id="colContraseniaEmpleado" prefWidth="75.0" text="Contraseña" />
+                                                <TableColumn fx:id="colEstadoEmpleado" prefWidth="65.0" text="Estado" />
                                              </columns>
                                              <HBox.margin>
                                                 <Insets bottom="30.0" left="100.0" top="30.0" />

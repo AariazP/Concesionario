@@ -258,7 +258,6 @@ public class EmpleadoController {
 
                 Sedan sedan = new Sedan();
                 sedan.setCapacidadMaletero(Double.parseDouble(txtCapacidadMaleteroSedan.getText()));
-                //TODO: Hay enums con valores extraños
                 sedan.setVelocidadCrucero(MethodsUtilities.getVelocidadCrucero(cmbVelocidadCruceroSedan.getValue()));
                 addAtributosAutomovil(sedan);
                 Concesionario.getInstance().agregarVehiculo(sedan);
@@ -350,6 +349,8 @@ public class EmpleadoController {
 
     //TODO
     private void limpiarCamposSuv() {
+        txtCapacidadMaleteroSuv.clear();
+        cmbCapacidadCruceroSuv.setValue(null);
     }
 
     @FXML
@@ -378,8 +379,8 @@ public class EmpleadoController {
 
     }
 
-    //TODO: Hacer
     private void limpiarCamposVan() {
+        txtCapacidadMaleteroVan.clear();
     }
 
     private void addAtributosAutomovil(Automovil automovil) {
