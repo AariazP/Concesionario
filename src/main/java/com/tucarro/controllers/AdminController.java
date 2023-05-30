@@ -52,8 +52,17 @@ public class AdminController {
     @FXML private TableColumn<Cliente, String> colContrasenia;
     @FXML private TableColumn<Cliente, String> colEstado;
     private ObservableList<Cliente> clientesObservableList = FXCollections.observableArrayList();
+// table view Empleados
+    @FXML private TableView<Empleado> tblEmpleados;
+    //Declarar las columnas de la tabla
+    @FXML private TableColumn<Empleado, String> colNombreEmpleado;
+    @FXML private TableColumn<Empleado, String> colApellidoEmpleado;
+    @FXML private TableColumn<Empleado, String> colCedulaEmpleado;
+    @FXML private TableColumn<Empleado, String> colEmailEmpleado;
+    @FXML private TableColumn<Empleado, String> colContraseniaEmpleado;
+    @FXML private TableColumn<Empleado, String> colEstadoEmpleado;
 
-
+    private ObservableList<Empleado> empleadoObservableList = FXCollections.observableArrayList();
     /**
      * Metodo que permite buscar un cliente por su cedula
      * @param event que se genera al hacer escribir en el campo de texto
@@ -213,6 +222,22 @@ public class AdminController {
     }
 
     //--------------CRUD EMPLEADO------------------
+    /**
+     * Metodo que permite buscar un cliente por su cedula
+     * @param event que se genera al hacer escribir en el campo de texto
+     */
+    @FXML
+    public void buscarEmpleado(KeyEvent event){
+        String cedula = txtBuscar.getText();
+
+        if(cedula.isEmpty()){
+            refrescarTabla();
+        }else {
+            Empleado empleado = Concesionario.getInstance().getEmpleadoByCedula(cedula);
+         //   if(empleado != null) refrescarTabla(empleado);
+           // else vaciarTabla();
+        }
+    }
     @FXML
     void actualizarEmpleado(ActionEvent event) {
 
@@ -243,14 +268,18 @@ public class AdminController {
 
     @FXML
     void eliminarEmpleado(ActionEvent event) {
-
+        Empleado empleado = tblEmpleados.getSelectionModel().getSelectedItem();
+        Concesionario.getInstance().eliminarCliente(empleado.getCedula());
+        refrescarTabla();
     }
 
     @FXML
     void limpiarCamposEmpleado(ActionEvent event) {
 
+       Empleado empleado = tblEmpleados.getSelectionModel().getSelectedItem();
+        Concesionario.getInstance().eliminarCliente(empleado.getCedula());
+        refrescarTabla();
     }
-
 
     @FXML
     void volverLogin(ActionEvent event) {

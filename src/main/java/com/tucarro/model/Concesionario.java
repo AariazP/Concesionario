@@ -188,7 +188,7 @@ public class Concesionario {
 
         return "";
     }
-
+//--------------------------------------------CRUD EMPLEADO-------------------------------------------
     /**
      * Este metodo permite crear un empleado validando la cedula
      * @param empleado el empleado a crear
@@ -203,5 +203,17 @@ public class Concesionario {
         listaEmpleados.add(empleado);
         return true;
 
+    }
+    /**
+     * Este método permite obtener un empleado por la cedula
+     *
+     * @param cedula atributo por el que se va a obtener el empleado
+     * @return el empleado con esa cedula
+     */
+    public Empleado getEmpleadoByCedula(String cedula) {
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.compararCedula(cedula)) return empleado;
+        }
+        return null;
     }
 }
