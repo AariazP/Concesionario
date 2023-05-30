@@ -31,7 +31,6 @@ public class Concesionario {
 
     /**
      * Este metodo permite obtener solo una instancia de concesionario
-     *
      * @return la unica instancia del concesionario
      */
     public static Concesionario getInstance() {
@@ -203,5 +202,9 @@ public class Concesionario {
         listaEmpleados.add(empleado);
         return true;
 
+    }
+
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        listaVehiculos.add(vehiculo);
     }
 }
