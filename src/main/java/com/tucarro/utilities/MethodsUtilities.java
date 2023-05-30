@@ -105,4 +105,17 @@ public class MethodsUtilities {
         if (value.equals("Si")) return Tipo4x4.SI;
         return Tipo4x4.NO;
     }
+
+    public static TipoCamion getTipoCamion(String value) {
+
+        if (value.equals("Tanque")) return TipoCamion.TANQUE;
+        if (value.equals("Volqueta")) return TipoCamion.VOLQUETA;
+        return TipoCamion.REMOLQUE;
+    }
+
+    public static Tipo4x4 getTipo4x4PickUp(String value) {
+
+        if (value.equals("Si")) return Tipo4x4.SI;
+        return Tipo4x4.NO;
+    }
 }

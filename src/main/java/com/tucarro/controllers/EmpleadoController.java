@@ -163,7 +163,39 @@ public class EmpleadoController {
 
     @FXML
     void guardarCamion(ActionEvent event) {
+        if (verificarCampos()) {
+            cargarCampos();
+            if (!txtCapacidadCargaCamion.getText().isEmpty()
+                    && !cmbTipoAireCamion.getValue().isEmpty()
+                        && !txtNumeroEjesCamion.getText().isEmpty()
+                            && !cmbTipoCamion.getValue().isEmpty()) {
 
+                Camion camion = new Camion();
+                camion.setCapacidadCarga(Double.parseDouble(txtCapacidadCargaCamion.getText()));
+                camion.setAireAcondicionado(MethodsUtilities.getAireAcondicionado(cmbTipoAireCamion.getValue()));
+                camion.setNumEjes(Integer.parseInt(txtNumeroEjesCamion.getText()));
+                camion.setTipoC(MethodsUtilities.getTipoCamion(cmbTipoCamion.getValue()));
+
+
+                Concesionario.getInstance().agregarVehiculo(camion);
+                Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
+                limpiarCamposAutomovil();
+                limpiarCamposCamion();
+            } else {
+                Application.getApplication().mostrarAlerta("Faltan campos por llenar en Sedan");
+            }
+
+
+        } else {
+            Application.getApplication().mostrarAlerta("Faltan campos por llenar en vehiculo");
+        }
+    }
+
+    private void limpiarCamposCamion() {
+        txtCapacidadCargaCamion.clear();
+        cmbTipoAireCamion.getSelectionModel().clearSelection();
+        txtNumeroEjesCamion.clear();
+        cmbTipoCamion.getSelectionModel().clearSelection();
     }
 
     @FXML
@@ -172,8 +204,27 @@ public class EmpleadoController {
     }
 
     @FXML
-    void guardarPickUp(ActionEvent event) {
+    void guardarPickUp(ActionEvent ignoredEvent) {
+        if (verificarCampos()) {
+            cargarCampos();
+            if (cmbTipo4X4PickUp.getValue() != null && !cmbCapacidadEjeCarga.getText().isEmpty()) {
 
+                Pick_Up pick = new Pick_Up();
+                pick.setEs4x4(MethodsUtilities.getTipo4x4PickUp(cmbTipo4X4PickUp.getValue()));
+                pick.setCapacidadCajaCarga(Double.parseDouble(cmbCapacidadEjeCarga.getText()));
+                addAtributosVan(pick);
+                Concesionario.getInstance().agregarVehiculo(pick);
+                Application.getApplication().mostrarAlerta("Se ha agregado el vehiculo");
+                limpiarCamposAutomovil();
+                limpiarCamposSedan();
+            } else {
+                Application.getApplication().mostrarAlerta("Faltan campos por llenar en Sedan");
+            }
+
+
+        } else {
+            Application.getApplication().mostrarAlerta("Faltan campos por llenar en vehiculo");
+        }
     }
 
     @FXML
@@ -248,7 +299,7 @@ public class EmpleadoController {
     }
 
     @FXML
-    void guardarSuv(ActionEvent event) {
+    void guardarSuv(ActionEvent ignoredEvent) {
         if(verificarCampos()){
 
             if(!txtCapacidadMaleteroSuv.getText().isEmpty()
@@ -280,7 +331,7 @@ public class EmpleadoController {
     }
 
     @FXML
-    void guardarVan(ActionEvent event) {
+    void guardarVan(ActionEvent ignoredEvent) {
 
         if(verificarCampos()){
 
@@ -425,7 +476,7 @@ public class EmpleadoController {
         cmbVelocidadCruceroSedan.getItems().addAll("Si", "No");
         cmbCapacidadCruceroSuv.getItems().addAll("Si", "No");
         cmbTipoAireCamion.getItems().addAll("Si", "No");
-        cmbTipoCamion.getItems().addAll("VOLQUETA", "REMOLQUE", "TANQUE");
+        cmbTipoCamion.getItems().addAll("Volqueta", "Remolque", "Tanque");
         cmbTipo4X4PickUp.getItems().addAll("Si", "No");
         cmbTipo4X4Suv.getItems().addAll("Si", "No");
 
