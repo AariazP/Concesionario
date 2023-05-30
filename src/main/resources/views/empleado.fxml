@@ -672,9 +672,8 @@
                                           <TableColumn fx:id="colNombre" prefWidth="75.0" text="Nombres" />
                                           <TableColumn fx:id="colApellido" prefWidth="75.0" text="Apellidos" />
                                           <TableColumn fx:id="colCedula" prefWidth="75.0" text="Cedula" />
-                                          <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
-                                          <TableColumn fx:id="colContrasenia" prefWidth="75.0" text="Contraseña" />
-                                          <TableColumn fx:id="colEstado" prefWidth="65.0" text="Estado" />
+                                          <TableColumn fx:id="colEmail" prefWidth="96.0" text="Email" />
+                                          <TableColumn fx:id="colContrasenia" prefWidth="120.0" text="Contraseña" />
                                        </columns>
                                        <HBox.margin>
                                           <Insets bottom="30.0" left="100.0" top="30.0" />
