@@ -31,7 +31,6 @@ public class Concesionario {
 
     /**
      * Este metodo permite obtener solo una instancia de concesionario
-     *
      * @return la unica instancia del concesionario
      */
     public static Concesionario getInstance() {
@@ -204,6 +203,7 @@ public class Concesionario {
         return true;
 
     }
+
     /**
      * Este método permite obtener un empleado por la cedula
      *
@@ -215,5 +215,10 @@ public class Concesionario {
             if (empleado.compararCedula(cedula)) return empleado;
         }
         return null;
+    }
+
+    public void agregarVehiculo(Vehiculo vehiculo) {
+        listaVehiculos.add(vehiculo);
+
     }
 }

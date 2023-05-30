@@ -28,7 +28,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         application = this;
-        loadStage(Paths.LOGIN);
+        loadStage(Paths.EMPLEADO);
     }
 
     /**
