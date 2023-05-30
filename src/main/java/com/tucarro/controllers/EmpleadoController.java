@@ -36,22 +36,6 @@ public class EmpleadoController {
         Application.getApplication().loadStage(Paths.LOGIN);
     }
 
-    private void loadNodes(Field[] atributosVehiculo) {
-        for (int i = 0; i < atributosVehiculo.length; i++) {
-            Label label = new Label();
-            TextField textField = new TextField();
-            textField.setPromptText(atributosVehiculo[i].getName());
-            vBoxTextFields.getChildren().add(textField);
-            label.setText(atributosVehiculo[i].getName());
-            vboxLabels.getChildren().add(label);
-            label.setStyle("-fx-background-color: #252525;\n" +
-                    "    -fx-border-radius: 50px;\n" +
-                    "    -fx-background-radius: 50px;\n" +
-                    "    -fx-border-color: WHITE;" +
-                    "-fx-text-fill: White; \n" +
-                    "-fx-alignment: center ");
-        }
-    }
 
     @FXML
     void initialize() {

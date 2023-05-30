@@ -39,3 +39,13 @@
     -fx-text-alignment: CENTER;
 
 }
+
+.CmbItem{
+
+    -fx-border-color: BLACK;
+    -fx-background-color: WHITE;
+    -fx-border-radius: 30;
+    -fx-background-radius: 30;
+
+
+}
