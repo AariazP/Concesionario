@@ -10,4 +10,6 @@ public class Paths {
     public static final String IMG_NULL = "/resources/images/img.png";
     public static final String RUTA_LOG = "src/main/resources/logs/log.txt";
     public static final String RUTA_CONCESIONARIO = "src/main/resources/persistencia/concesionario.txt";
+    public static final String CarroItem = "/views/carroItem.fxml";
+    public static final String CLIENTE = "/views/cliente.fxml";
 }

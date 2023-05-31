@@ -46,6 +46,8 @@ public class LoginController {
 
             } else if (tipoUsuario.equals("Empleado")) {
                 Application.getApplication().loadStage(Paths.EMPLEADO);
+            }else if (tipoUsuario.equals("Cliente")) {
+                Application.getApplication().loadStage(Paths.CLIENTE);
             } else {
                 Application.getApplication().mostrarAlerta("Datos de acceso incorrectos, intente nuevamente.");
             }

@@ -28,11 +28,6 @@ public class Concesionario implements Serializable {
         listaVehiculos = new ArrayList<>();
         listaAdministradores = new ArrayList<>();
         listaRegistros = new ArrayList<>();
-        Administrador admin = new Administrador("admin", "admin");
-        Empleado empleado1 = new Empleado("user1", "123");
-        listaAdministradores.add(admin);
-        listaEmpleados.add(empleado1);
-
     }
 
     /**

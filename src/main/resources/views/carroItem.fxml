@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="167.0" prefWidth="193.0" style="-fx-background-color: BLUE; -fx-background-radius: 40; -fx-border-radius: 40;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.CarroItemController">
+   <children>
+      <Label layoutX="60.0" layoutY="52.0" text="Hola" />
+   </children>
+</AnchorPane>
