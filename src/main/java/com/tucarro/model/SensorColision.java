@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum SensorColision {
+import java.io.Serializable;
+
+public enum SensorColision implements Serializable {
 SI,NO;
 }

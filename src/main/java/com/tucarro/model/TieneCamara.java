@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TieneCamara {
+import java.io.Serializable;
+
+public enum TieneCamara implements Serializable {
 SI,NO;
 }

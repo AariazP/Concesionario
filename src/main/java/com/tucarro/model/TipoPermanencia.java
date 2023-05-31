@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoPermanencia {
+import java.io.Serializable;
+
+public enum TipoPermanencia implements Serializable {
 SI,NO;
 }

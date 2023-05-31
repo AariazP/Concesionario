@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoABS {
+import java.io.Serializable;
+
+public enum TipoABS implements Serializable {
 SI,NO;
 }

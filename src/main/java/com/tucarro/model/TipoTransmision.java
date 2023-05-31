@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoTransmision {
+import java.io.Serializable;
+
+public enum TipoTransmision implements Serializable {
 AUTOMATICA,MANUAL;
 }

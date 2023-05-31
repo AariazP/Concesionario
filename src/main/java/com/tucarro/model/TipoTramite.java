@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoTramite {
+import java.io.Serializable;
+
+public enum TipoTramite implements Serializable {
 VENTA,ALQUILER;
 }

@@ -1,5 +1,8 @@
 package com.tucarro.model;
 
-public enum TipoCamion {
+
+import java.io.Serializable;
+
+public enum TipoCamion implements Serializable {
 VOLQUETA,REMOLQUE,TANQUE;
 }

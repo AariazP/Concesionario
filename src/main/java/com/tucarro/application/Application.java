@@ -1,5 +1,7 @@
 package com.tucarro.application;
 
+import com.tucarro.model.Concesionario;
+import com.tucarro.utilities.MethodsUtilities;
 import com.tucarro.utilities.Paths;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,8 +29,12 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
+       //cuando la ventana se cierra se guarda el concesionario
+        stage.setOnCloseRequest(e -> {
+            MethodsUtilities.serializarConcesionario(Concesionario.getInstance());
+        });
         application = this;
-        loadStage(Paths.EMPLEADO);
+        loadStage(Paths.LOGIN);
     }
 
     /**

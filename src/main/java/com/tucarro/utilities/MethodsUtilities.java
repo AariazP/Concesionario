@@ -5,10 +5,7 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -134,5 +131,45 @@ public class MethodsUtilities {
         } catch (IOException e) {
             System.err.println("Error al escribir en el archivo de log: " + e.getMessage());
         }
+    }
+
+
+    /**
+     * Metodo que serializa el concesionario en binario, para que se pueda
+     * cargar la informacion de los vehiculos en el programa
+     * @param concesionario el concesionario a serializar
+     */
+    public static void serializarConcesionario(Concesionario concesionario){
+
+        try {
+            FileOutputStream fileOut = new FileOutputStream(Paths.RUTA_CONCESIONARIO);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(concesionario);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in " + Paths.RUTA_CONCESIONARIO);
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+
+
+    }
+
+
+    public static Concesionario deserializarConcesionario() {
+        Concesionario concesionario = null;
+        try {
+            FileInputStream fileIn = new FileInputStream(Paths.RUTA_CONCESIONARIO);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            concesionario = (Concesionario) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Concesionario class not found");
+            c.printStackTrace();
+        }
+        return concesionario;
     }
 }

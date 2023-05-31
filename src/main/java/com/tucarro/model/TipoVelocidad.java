@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoVelocidad {
+import java.io.Serializable;
+
+public enum TipoVelocidad implements Serializable {
 SI,NO;
 }

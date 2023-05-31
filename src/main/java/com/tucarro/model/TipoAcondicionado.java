@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoAcondicionado {
+import java.io.Serializable;
+
+public enum TipoAcondicionado implements Serializable {
 SI,NO;
 }

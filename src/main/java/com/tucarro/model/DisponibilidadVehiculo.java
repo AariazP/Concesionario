@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum DisponibilidadVehiculo {
+import java.io.Serializable;
+
+public enum DisponibilidadVehiculo implements Serializable {
 SI,NO;
 }

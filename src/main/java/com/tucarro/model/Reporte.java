@@ -1,6 +1,8 @@
 package com.tucarro.model;
 
-public class Reporte {
+import java.io.Serializable;
+
+public class Reporte implements Serializable {
 	
 	private Cliente cliente;
 	private String fecha;

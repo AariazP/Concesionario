@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum SensorTrafico {
+import java.io.Serializable;
+
+public enum SensorTrafico implements Serializable {
 SI,NO;
 }

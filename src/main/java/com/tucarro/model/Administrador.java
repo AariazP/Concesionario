@@ -2,10 +2,12 @@ package com.tucarro.model;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 @Getter
 @Setter
-public class Administrador extends Persona{
+public class Administrador extends Persona implements Serializable {
 
 
     Empleado empleado = new Empleado("yuri","reyes","123","yuri123","1234");

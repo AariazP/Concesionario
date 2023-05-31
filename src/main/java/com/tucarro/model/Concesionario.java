@@ -1,14 +1,17 @@
 package com.tucarro.model;
 
 
+import com.tucarro.utilities.MethodsUtilities;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
 @Setter
 @Getter
-public class Concesionario {
+public class Concesionario implements Serializable {
 
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Vehiculo> listaVehiculos;
@@ -38,7 +41,7 @@ public class Concesionario {
      */
     public static Concesionario getInstance() {
 
-        if (concesionario == null) concesionario = new Concesionario();
+        if (concesionario == null) concesionario = MethodsUtilities.deserializarConcesionario();
         return concesionario;
 
     }

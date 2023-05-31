@@ -3,11 +3,12 @@ package com.tucarro.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @Getter
 @Setter
-public class Cliente extends Persona{
+public class Cliente extends Persona implements Serializable {
 
 	private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 

@@ -1,4 +1,7 @@
 package com.tucarro.model;
-public enum TipoEstado {
+
+import java.io.Serializable;
+
+public enum TipoEstado implements Serializable {
 ACTIVO,BLOQUEADO;
 }

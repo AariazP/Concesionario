@@ -37,6 +37,9 @@ public class AdminController {
     @FXML
     private TableColumn<Registro, String> colPlacaVehiculo;
     @FXML
+    private TableColumn<Registro, String> colFecha;
+
+    @FXML
     private TableView<Registro> tblReportes;
 
 
@@ -130,7 +133,7 @@ public class AdminController {
         colPlacaVehiculo.setCellValueFactory(new PropertyValueFactory<>("placaVehiculo"));
         colTramite.setCellValueFactory(new PropertyValueFactory<>("tipoTramite"));
         tblReportes.getItems().addAll(Concesionario.getInstance().getListaRegistros());
-
+        colFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 
     }
 

@@ -3,13 +3,13 @@ package com.tucarro.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import java.io.Serializable;
 
-import java.util.Arrays;
 
 @Getter
 @Setter
 @ToString
-public class Van extends Automovil {
+public class Van extends Automovil implements Serializable {
 	
 	private double capacidadMaletero;
 	

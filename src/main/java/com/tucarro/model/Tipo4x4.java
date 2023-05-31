@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum Tipo4x4 {
+import java.io.Serializable;
+
+public enum Tipo4x4 implements Serializable {
 SI,NO;
 }

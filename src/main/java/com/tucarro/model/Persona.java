@@ -4,9 +4,11 @@ package com.tucarro.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public abstract class Persona {
+public abstract class Persona implements Serializable {
 
 
     private String nombre;

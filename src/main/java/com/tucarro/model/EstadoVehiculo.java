@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum EstadoVehiculo {
+import java.io.Serializable;
+
+public enum EstadoVehiculo implements Serializable {
 NUEVO,USADO;
 }

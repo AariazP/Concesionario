@@ -1,8 +1,9 @@
 package com.tucarro.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Empleado extends Persona{
+public class Empleado extends Persona implements Serializable {
 
     //Atributos
     enum estadoEmpleado {ACTIVO, BLOQUEADO};

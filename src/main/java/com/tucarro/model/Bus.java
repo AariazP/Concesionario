@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 @Getter
 @Setter
 @ToString
-public class Bus extends Automovil{
+public class Bus extends Automovil implements Serializable {
 	
 	private int numEjes;
 	private int numSalidasEmergencia;

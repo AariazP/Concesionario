@@ -1,5 +1,7 @@
 package com.tucarro.model;
 
-public enum TipoCombustible {
+import java.io.Serializable;
+
+public enum TipoCombustible implements Serializable {
 GASOLINA,DIESEL,ELECTRICO,HIBRIDO;
 }
