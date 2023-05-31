@@ -39,6 +39,7 @@ public abstract class Vehiculo{
     }
 
 
-
-
+    public boolean compararPlaca(String placa) {
+        return this.placa.equals(placa);
+    }
 }

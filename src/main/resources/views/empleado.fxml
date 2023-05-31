@@ -535,21 +535,23 @@
                                 </AnchorPane>
                             </content>
                         </Tab>
-                  <Tab text="Ingresar Moto">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
-                  </Tab>
-                        <Tab text="Inventario">
+                        <Tab onSelectionChanged="#refrescarTablaVehiculos" text="Inventario">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TableView prefHeight="424.0" prefWidth="443.0">
+                                        <TableView fx:id="tableAutomoviles" layoutX="16.0" layoutY="10.0" prefHeight="533.0" prefWidth="577.0">
                                             <columns>
-                                                <TableColumn prefWidth="75.0" text="C1" />
-                                                <TableColumn prefWidth="75.0" text="C2" />
+                                                <TableColumn fx:id="colMarca" prefWidth="75.0" text="Marca" />
+                                                <TableColumn fx:id="colModelo" prefWidth="75.0" text="Modelo" />
+                                    <TableColumn fx:id="colCantCambios" prefWidth="90.0" text="Cant Cambios" />
+                                    <TableColumn fx:id="colVelocidadMaxima" prefWidth="112.0" text="Velocidad Máxima" />
+                                    <TableColumn fx:id="colCilindraje" prefWidth="112.0" text="Cilindraje" />
+                                    <TableColumn fx:id="colPlaca" prefWidth="112.0" text="Placa" />
+                                    <TableColumn fx:id="colNumeroPasajeros" prefWidth="112.0" text="Combustible" />
+                                    <TableColumn fx:id="colNumeroPuertas" prefWidth="112.0" text="Transmision" />
                                             </columns>
                                         </TableView>
+                              <Button layoutX="617.0" layoutY="59.0" mnemonicParsing="false" onAction="#eliminarVehiculo" text="Eliminar vehiculo" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -637,11 +639,6 @@
                                              </VBox.margin>
                                           </Label>
                                           <PasswordField fx:id="txtContrasenia" />
-                                          <Label text="Estado">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                              <children>
                                                 <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#crearCliente" text="Registrar">
@@ -684,6 +681,33 @@
                            </children>
                         </AnchorPane>
                      </content>
+                  </Tab>
+                  <Tab onSelectionChanged="#refrescarTablaOP" text="Operaciones">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tblVehiculosOp" layoutX="21.0" layoutY="58.0" prefHeight="369.0" prefWidth="414.0">
+                                <columns>
+                                  <TableColumn fx:id="colPlacaOp" prefWidth="162.0" text="placa" />
+                                  <TableColumn fx:id="colMarcaOp" prefWidth="112.0" text="Marca" />
+                                    <TableColumn fx:id="colModeloOp" prefWidth="139.0" text="Modelo" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="166.0" layoutY="24.0" text="Vehiculos" />
+                              <Label layoutX="673.0" layoutY="24.0" text="Clientes" />
+                              <TableView fx:id="tblClientesOp" layoutX="475.0" layoutY="58.0" prefHeight="365.0" prefWidth="441.0">
+                                <columns>
+                                  <TableColumn fx:id="colNombreOp" prefWidth="93.0" text="Nombre" />
+                                  <TableColumn fx:id="colApellidosOp" prefWidth="113.0" text="Apellidos" />
+                                    <TableColumn fx:id="colCedulaOp" prefWidth="107.0" text="Cedula" />
+                                    <TableColumn fx:id="colEmailOp" prefWidth="127.0" text="Email" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="248.0" layoutY="465.0" mnemonicParsing="false" onAction="#venderVehiculo" text="Vender" />
+                              <Button layoutX="554.0" layoutY="466.0" mnemonicParsing="false" onAction="#alquilarVehiculo" text="Alquilar" />
+                           </children>
+                        </AnchorPane>
+                    </content>
                   </Tab>
                     </tabs>
                 </TabPane>

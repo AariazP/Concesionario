@@ -51,7 +51,7 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="581.0" prefWidth="938.0">
                                        <children>
-                                          <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="928.0">
                                              <children>
                                                 <Label text="Ingresar usuario">
                                                    <HBox.margin>
@@ -77,13 +77,13 @@
                                                 <Insets bottom="15.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <TableView prefHeight="406.0" prefWidth="622.0">
+                                          <TableView fx:id="tblReportes" onSort="#actualizarRegistros" prefHeight="406.0" prefWidth="622.0">
                                             <columns>
-                                              <TableColumn prefWidth="147.0" text="Cliente" />
-                                              <TableColumn prefWidth="92.0" text="Fecha" />
-                                                <TableColumn prefWidth="145.0" text="Empleado" />
-                                                <TableColumn minWidth="9.0" prefWidth="147.0" text="Trámite" />
-                                                <TableColumn prefWidth="162.0" text="Vehiculo" />
+                                              <TableColumn fx:id="colCliente" prefWidth="185.0" text="Cliente" />
+                                              <TableColumn fx:id="colFecha" prefWidth="114.0" text="Fecha" />
+                                                <TableColumn fx:id="colEmpleado" prefWidth="188.0" text="Empleado" />
+                                                <TableColumn fx:id="colTramite" minWidth="9.0" prefWidth="256.0" text="Trámite" />
+                                                <TableColumn fx:id="colPlacaVehiculo" prefWidth="164.0" text="Placa del vehiculo" />
                                             </columns>
                                              <VBox.margin>
                                                 <Insets bottom="15.0" left="15.0" right="15.0" />

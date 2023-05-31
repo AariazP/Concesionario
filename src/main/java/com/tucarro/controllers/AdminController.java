@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 
 public class AdminController {
@@ -21,15 +22,24 @@ public class AdminController {
     private TextField txtApellidoEmpleado;
     @FXML
     private TextField txtCedulaEmpleado;
-
     @FXML
     private PasswordField txtContraseniaEmpleado;
-
     @FXML
     private TextField txtEmailEmpleado;
-
     @FXML
     private TextField txtNombreEmpleado;
+    @FXML
+    private TableColumn<Registro, String> colTramite;
+    @FXML
+    private TableColumn<Registro, String> colCliente;
+    @FXML
+    private TableColumn<Registro, String> colEmpleado;
+    @FXML
+    private TableColumn<Registro, String> colPlacaVehiculo;
+    @FXML
+    private TableView<Registro> tblReportes;
+
+
 
 
 // table view Empleados
@@ -115,6 +125,23 @@ public class AdminController {
     @FXML
     public void initialize() {
 
+        colCliente.setCellValueFactory(new PropertyValueFactory<>("nombreCliente"));
+        colEmpleado.setCellValueFactory(new PropertyValueFactory<>("nombreEmpleado"));
+        colPlacaVehiculo.setCellValueFactory(new PropertyValueFactory<>("placaVehiculo"));
+        colTramite.setCellValueFactory(new PropertyValueFactory<>("tipoTramite"));
+        tblReportes.getItems().addAll(Concesionario.getInstance().getListaRegistros());
+
+
+    }
+
+
+    public void actualizarRegistros(ActionEvent event){
+        tblReportes.getItems().clear();
+        tblReportes.getItems().addAll(Concesionario.getInstance().getListaRegistros());
+    }
+
+    @FXML
+    void buscar(KeyEvent event) {
 
     }
 

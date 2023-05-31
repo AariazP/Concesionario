@@ -140,6 +140,10 @@ public class EmpleadoController {
     @FXML
     private TableView<Cliente> tblClientes;
     @FXML
+    private TableView<Vehiculo> tblVehiculosOp;
+    @FXML
+    private TableView<Cliente> tblClientesOp;
+    @FXML
     private TableColumn<Cliente, String> colNombre;
     @FXML
     private TableColumn<Cliente, String> colApellido;
@@ -185,10 +189,49 @@ public class EmpleadoController {
     @FXML
     private PasswordField txtContrasenia;
     @FXML
-    private ChoiceBox<?> estadoEmpleado;
-    @FXML
     private Button btnActualizar, btnEliminar, btnRegistrar;
+    @FXML
+    private TableColumn<Automovil, String> colCilindraje;
+    @FXML
+    private TableColumn<Automovil, String> colMarca;
+    @FXML
+    private TableColumn<Automovil, String> colModelo;
+    @FXML
+    private TableColumn<Automovil, String> colNumeroPasajeros;
+    @FXML
+    private TableColumn<Automovil, String> colNumeroPuertas;
+    @FXML
+    private TableColumn<Automovil, String> colPlaca;
+    @FXML
+    private TableColumn<Automovil, String> colVelocidadMaxima;
+    @FXML
+    private TableColumn<Automovil, String> colCantCambios;
 
+
+
+    @FXML
+    private TableColumn<Automovil, String> colPlacaOp;
+    @FXML
+    private TableColumn<Automovil, String> colMarcaOp;
+    @FXML
+    private TableColumn<Automovil, String> colModeloOp;
+    @FXML
+    private TableColumn<Cliente, String> colNombreOp;
+    @FXML
+    private TableColumn<Cliente, String> colApellidosOp;
+    @FXML
+    private TableColumn<Cliente, String> colCedulaOp;
+    @FXML
+    private TableColumn<Cliente, String> colEmailOp;
+
+
+
+    private Vehiculo vehiculoSeleccionado;
+
+
+
+    @FXML
+    private TableView<Vehiculo> tableAutomoviles;
 
 
     @FXML
@@ -226,8 +269,8 @@ public class EmpleadoController {
             cargarCampos();
             if (!txtCapacidadCargaCamion.getText().isEmpty()
                     && !cmbTipoAireCamion.getValue().isEmpty()
-                        && !txtNumeroEjesCamion.getText().isEmpty()
-                            && !cmbTipoCamion.getValue().isEmpty()) {
+                    && !txtNumeroEjesCamion.getText().isEmpty()
+                    && !cmbTipoCamion.getValue().isEmpty()) {
 
                 Camion camion = new Camion();
                 camion.setCapacidadCarga(Double.parseDouble(txtCapacidadCargaCamion.getText()));
@@ -370,20 +413,20 @@ public class EmpleadoController {
 
         String[] im = new String[5];
 
-        if(img1.getImage() != null) im[0] = MethodsUtilities.getImagePath(img1.getImage());
-        if(img2.getImage() != null) im[1] = MethodsUtilities.getImagePath(img2.getImage());
-        if(img3.getImage() != null) im[2] = MethodsUtilities.getImagePath(img3.getImage());
-        if(img4.getImage() != null) im[3] = MethodsUtilities.getImagePath(img4.getImage());
-        if(img5.getImage() != null) im[4] = MethodsUtilities.getImagePath(img5.getImage());
+        if (img1.getImage() != null) im[0] = MethodsUtilities.getImagePath(img1.getImage());
+        if (img2.getImage() != null) im[1] = MethodsUtilities.getImagePath(img2.getImage());
+        if (img3.getImage() != null) im[2] = MethodsUtilities.getImagePath(img3.getImage());
+        if (img4.getImage() != null) im[3] = MethodsUtilities.getImagePath(img4.getImage());
+        if (img5.getImage() != null) im[4] = MethodsUtilities.getImagePath(img5.getImage());
         return im;
     }
 
     @FXML
     void guardarSuv(ActionEvent ignoredEvent) {
-        if(verificarCampos()){
+        if (verificarCampos()) {
 
-            if(!txtCapacidadMaleteroSuv.getText().isEmpty()
-                    && cmbCapacidadCruceroSuv.getValue() != null && cmbTipo4X4Suv.getValue() != null){
+            if (!txtCapacidadMaleteroSuv.getText().isEmpty()
+                    && cmbCapacidadCruceroSuv.getValue() != null && cmbTipo4X4Suv.getValue() != null) {
 
                 Suv_Camioneta suv = new Suv_Camioneta();
                 suv.setCapacidadMaletero(Double.parseDouble(txtCapacidadMaleteroSuv.getText()));
@@ -395,12 +438,12 @@ public class EmpleadoController {
                 limpiarCamposAutomovil();
                 limpiarCamposSuv();
 
-            }else {
+            } else {
                 Application.getApplication().mostrarAlerta("Faltan campos por llenar en Van");
             }
 
 
-        }else {
+        } else {
             Application.getApplication().mostrarAlerta("Faltan campos por llenar en vehiculo");
         }
 
@@ -415,9 +458,9 @@ public class EmpleadoController {
     @FXML
     void guardarVan(ActionEvent ignoredEvent) {
 
-        if(verificarCampos()){
+        if (verificarCampos()) {
 
-            if(!txtCapacidadMaleteroVan.getText().isEmpty()){
+            if (!txtCapacidadMaleteroVan.getText().isEmpty()) {
 
                 Van van = new Van();
                 addAtributosAutomovil(van);
@@ -427,12 +470,12 @@ public class EmpleadoController {
                 limpiarCamposAutomovil();
                 limpiarCamposVan();
 
-            }else {
+            } else {
                 Application.getApplication().mostrarAlerta("Faltan campos por llenar en Van");
             }
 
 
-        }else {
+        } else {
             Application.getApplication().mostrarAlerta("Faltan campos por llenar en vehiculo");
         }
 
@@ -511,6 +554,7 @@ public class EmpleadoController {
 
 
     }
+
     /**
      * Metodo que limpia la tabla
      */
@@ -522,9 +566,10 @@ public class EmpleadoController {
 
     /**
      * Metodo que refresca la tabla con un solo cliente
+     *
      * @param cliente el que se va a mostrar
      */
-    private void refrescarTabla(Cliente cliente){
+    private void refrescarTabla(Cliente cliente) {
 
         tblClientes.getItems().clear();
         clientesObservableList.clear();
@@ -537,31 +582,30 @@ public class EmpleadoController {
 
     /**
      * Metodo que permite buscar un cliente por su cedula
+     *
      * @param event que se genera al hacer escribir en el campo de texto
      */
     @FXML
-    public void buscar(KeyEvent event){
+    public void buscar(KeyEvent event) {
         String cedula = txtBuscar.getText();
 
-        if(cedula.isEmpty()){
+        if (cedula.isEmpty()) {
             refrescarTabla();
-        }else {
+        } else {
             Cliente cliente = Concesionario.getInstance().getClienteByCedula(cedula);
-            if(cliente != null) refrescarTabla(cliente);
+            if (cliente != null) refrescarTabla(cliente);
             else vaciarTabla();
         }
     }
 
 
-
-
-
     /**
      * Metodo que crea un cliente en el modelo
+     *
      * @param event que generado al hacer click
      */
     @FXML
-    public void crearCliente(ActionEvent event){
+    public void crearCliente(ActionEvent event) {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
@@ -572,11 +616,10 @@ public class EmpleadoController {
         Cliente cliente = new Cliente(nombre, apellido, cedula, email, contrasenia);
 
 
-
         if (!nombre.isEmpty() && !apellido.isEmpty() && !cedula.isEmpty()
                 && !email.isEmpty() && !contrasenia.isEmpty()) {
 
-            if(Concesionario.getInstance().crearCliente(cliente)){
+            if (Concesionario.getInstance().crearCliente(cliente)) {
 
                 Application.getApplication().mostrarAlerta("Cliente creado con éxito");
                 refrescarTabla();
@@ -587,7 +630,7 @@ public class EmpleadoController {
                 Application.getApplication().mostrarAlerta("Ya existe un usuario con estos datos.");
 
             }
-        }else {
+        } else {
             Application.getApplication().mostrarAlerta("Por favor rellene todos los campos");
         }
     }
@@ -609,7 +652,7 @@ public class EmpleadoController {
      * Este metodo permite actualizar los datos de un cliente
      */
     @FXML
-    public void actualizarCliente(ActionEvent event){
+    public void actualizarCliente(ActionEvent event) {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
@@ -618,10 +661,10 @@ public class EmpleadoController {
         String email = txtEmail.getText();
         String contrasenia = txtContrasenia.getText();
 
-        if(Concesionario.getInstance().actualizarDatosCliente(nombre, apellido, cedula, email, contrasenia)){
+        if (Concesionario.getInstance().actualizarDatosCliente(nombre, apellido, cedula, email, contrasenia)) {
             tblClientes.refresh();
             Application.getApplication().mostrarAlerta("Cliente actualizado con éxito");
-        }else {
+        } else {
             Application.getApplication().mostrarAlerta("No se pudo actualizar el cliente, verifique la cedula sea la correcta");
         }
 
@@ -629,6 +672,7 @@ public class EmpleadoController {
 
     /**
      * Metodo que carga los campos de texto con los datos del cliente seleccionado
+     *
      * @param cliente que se va a mostrar
      */
     private void cargarCampos(Cliente cliente) {
@@ -647,10 +691,11 @@ public class EmpleadoController {
 
     /**
      * Metodo que permite eliminar un cliente
+     *
      * @param event que se genera al hacer click
      */
     @FXML
-    public void eliminarCliente(ActionEvent event){
+    public void eliminarCliente(ActionEvent event) {
 
         Cliente cliente = tblClientes.getSelectionModel().getSelectedItem();
         Concesionario.getInstance().eliminarCliente(cliente.getCedula());
@@ -662,7 +707,7 @@ public class EmpleadoController {
      * Metodo que limpia los campos de texto de la vista
      */
     @FXML
-    public void limpiarCampos(){
+    public void limpiarCampos() {
         //Limpia los campos para realizar un nuevo registro
         txtBuscar.setText("");
         txtNombre.setText("");
@@ -729,13 +774,84 @@ public class EmpleadoController {
         colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colContrasenia.setCellValueFactory(new PropertyValueFactory<>("contrasenia"));
+
+
+        colCilindraje.setCellValueFactory(new PropertyValueFactory<>("cilindraje"));
+        colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        colModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        colNumeroPasajeros.setCellValueFactory(new PropertyValueFactory<>("combustible"));
+        colNumeroPuertas.setCellValueFactory(new PropertyValueFactory<>("numeroPuertas"));
+        colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        colVelocidadMaxima.setCellValueFactory(new PropertyValueFactory<>("velocidadMaxima"));
+        colCantCambios.setCellValueFactory(new PropertyValueFactory<>("cantCambios"));
+        colNumeroPuertas.setCellValueFactory(new PropertyValueFactory<>("transmision"));
+
+        colPlacaOp.setCellValueFactory(new PropertyValueFactory<>("placa"));
+        colMarcaOp.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        colModeloOp.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        colNombreOp.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colApellidosOp.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        colCedulaOp.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        colEmailOp.setCellValueFactory(new PropertyValueFactory<>("email"));
+
         tblClientes.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
                 Cliente itemSeleccionado = tblClientes.getSelectionModel().getSelectedItem();
-                if(itemSeleccionado != null) cargarCampos(itemSeleccionado);
+                if (itemSeleccionado != null) cargarCampos(itemSeleccionado);
+            }
+        });
+
+        tableAutomoviles.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+               vehiculoSeleccionado = tableAutomoviles.getSelectionModel().getSelectedItem();
             }
         });
         refrescarTabla();
 
+        Concesionario.getInstance().getListaVehiculos().forEach(e->tableAutomoviles.getItems().add(e));
+
+        refrescarTablaOP();
     }
+
+    public void refrescarTablaOP() {
+        tblVehiculosOp.getItems().clear();
+        tblClientesOp.getItems().clear();
+        Concesionario.getInstance().getListaVehiculos().forEach(e->tblVehiculosOp.getItems().add(e));
+        Concesionario.getInstance().getListaClientes().forEach(e->tblClientesOp.getItems().add(e));
+    }
+
+    public void refrescarTablaVehiculos(){
+        tableAutomoviles.getItems().clear();
+        Concesionario.getInstance().getListaVehiculos().forEach(e->tableAutomoviles.getItems().add(e));
+    }
+
+    public void eliminarVehiculo(ActionEvent ignoredEvent){
+        Concesionario.getInstance().eliminarVehiculo(vehiculoSeleccionado.getPlaca());
+        refrescarTablaVehiculos();
+    }
+
+    public void venderVehiculo(ActionEvent event){
+        Cliente cliente = tblClientesOp.getSelectionModel().getSelectedItem();
+        Vehiculo vehiculo = tblVehiculosOp.getSelectionModel().getSelectedItem();
+        if(cliente != null && vehiculo != null){
+            Concesionario.getInstance().venderVehiculo(cliente,vehiculo);
+            MethodsUtilities.log("Se ha vendido el vehiculo "+vehiculo.getPlaca()+" al cliente "+cliente.getNombre()+" "+cliente.getApellido());
+            System.err.println("Se ha vendido el vehiculo "+vehiculo.getPlaca()+" al cliente "+cliente.getNombre()+" "+cliente.getApellido());
+            refrescarTablaVehiculos();
+            refrescarTablaOP();
+        }
+    }
+
+    public void alquilarVehiculo(ActionEvent event){
+        Cliente cliente = tblClientesOp.getSelectionModel().getSelectedItem();
+        Vehiculo vehiculo = tblVehiculosOp.getSelectionModel().getSelectedItem();
+        if(cliente != null && vehiculo != null){
+            Concesionario.getInstance().alquilarVehiculo(cliente,vehiculo);
+            MethodsUtilities.log("Se ha alquilado el vehiculo "+vehiculo.getPlaca()+" al cliente "+cliente.getNombre()+" "+cliente.getApellido());
+            System.err.println("Se ha alquilado el vehiculo "+vehiculo.getPlaca()+" al cliente "+cliente.getNombre()+" "+cliente.getApellido());
+            refrescarTablaVehiculos();
+            refrescarTablaOP();
+        }
+    }
+
 }

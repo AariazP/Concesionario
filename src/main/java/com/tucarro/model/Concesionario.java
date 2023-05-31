@@ -14,7 +14,9 @@ public class Concesionario {
     private ArrayList<Vehiculo> listaVehiculos;
     private ArrayList<Cliente> listaClientes;
     private ArrayList<Administrador> listaAdministradores;
+    private ArrayList<Registro> listaRegistros;
     public static Concesionario concesionario;
+    private Empleado empleadoActual;
 
 
     private Concesionario() {
@@ -22,6 +24,7 @@ public class Concesionario {
         listaEmpleados = new ArrayList<>();
         listaVehiculos = new ArrayList<>();
         listaAdministradores = new ArrayList<>();
+        listaRegistros = new ArrayList<>();
         Administrador admin = new Administrador("admin", "admin");
         Empleado empleado1 = new Empleado("user1", "123");
         listaAdministradores.add(admin);
@@ -176,7 +179,10 @@ public class Concesionario {
 
 
         for (Empleado empleado : listaEmpleados) {
-            if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)) return "Empleado";
+            if (empleado.compararEmail(usuario) && empleado.compararContrasenia(contrasenia)){
+                empleadoActual = empleado;
+                return "Empleado";
+            }
         }
 
 
@@ -220,5 +226,28 @@ public class Concesionario {
     public void agregarVehiculo(Vehiculo vehiculo) {
         listaVehiculos.add(vehiculo);
 
+    }
+
+    public void eliminarVehiculo(String placa) {
+        for (Vehiculo vehiculo : listaVehiculos) {
+            if (vehiculo.compararPlaca(placa)) {
+                listaVehiculos.remove(vehiculo);
+                break;
+            }
+        }
+    }
+
+    public void venderVehiculo(Cliente cliente, Vehiculo vehiculo) {
+        Registro registro = new Registro(cliente, empleadoActual,vehiculo, "Venta");
+        listaRegistros.add(registro);
+        cliente.agregarVehiculo(vehiculo);
+        eliminarVehiculo(vehiculo.getPlaca());
+    }
+
+    public void alquilarVehiculo(Cliente cliente, Vehiculo vehiculo) {
+        Registro registro = new Registro(cliente, empleadoActual,vehiculo, "Alquiler");
+        listaRegistros.add(registro);
+        cliente.agregarVehiculo(vehiculo);
+        eliminarVehiculo(vehiculo.getPlaca());
     }
 }

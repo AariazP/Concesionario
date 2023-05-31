@@ -1,0 +1,2 @@
+[2023-05-30 18:18:59] Se ha vendido el vehiculo 2 al cliente 1 1
+[2023-05-30 18:21:40] Se ha vendido el vehiculo 2 al cliente 1 1

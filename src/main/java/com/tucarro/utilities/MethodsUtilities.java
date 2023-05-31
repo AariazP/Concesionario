@@ -5,7 +5,12 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class MethodsUtilities {
 
@@ -117,5 +122,17 @@ public class MethodsUtilities {
 
         if (value.equals("Si")) return Tipo4x4.SI;
         return Tipo4x4.NO;
+    }
+
+    public static void log(String message) {
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String logMessage = String.format("[%s] %s", timestamp, message);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(Paths.RUTA_LOG, true))) {
+            writer.write(logMessage);
+            writer.newLine();
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo de log: " + e.getMessage());
+        }
     }
 }
