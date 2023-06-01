@@ -29,7 +29,24 @@ public class Concesionario implements Serializable {
         listaVehiculos = new ArrayList<>();
         listaAdministradores = new ArrayList<>();
         listaRegistros = new ArrayList<>();
-        
+
+        /*Administrador administrador = new Administrador();
+        administrador.setNombre("admin");
+        administrador.setApellido("admin");
+        administrador.setCedula("admin");
+        administrador.setEmail("admin");
+        administrador.setContrasenia("admin");
+        listaAdministradores.add(administrador);
+
+        Empleado empleado = new Empleado();
+        empleado.setNombre("empleado");
+        empleado.setApellido("empleado");
+        empleado.setCedula("empleado");
+        empleado.setEmail("user1");
+        empleado.setContrasenia("123");
+        listaEmpleados.add(empleado);*/
+
+
     }
 
     /**
@@ -245,6 +262,7 @@ public class Concesionario implements Serializable {
     public void venderVehiculo(Cliente cliente, Vehiculo vehiculo) {
         Registro registro = new Registro(cliente, empleadoActual,vehiculo, "Venta");
         listaRegistros.add(registro);
+        MethodsUtilities.log("Se vendio el vehiculo con placa: " + vehiculo.getPlaca() + " al cliente: " + cliente.getNombre() + " " + cliente.getApellido());
         cliente.agregarVehiculo(vehiculo);
         eliminarVehiculo(vehiculo.getPlaca());
     }
@@ -252,6 +270,7 @@ public class Concesionario implements Serializable {
     public void alquilarVehiculo(Cliente cliente, Vehiculo vehiculo) {
         Registro registro = new Registro(cliente, empleadoActual,vehiculo, "Alquiler");
         listaRegistros.add(registro);
+        MethodsUtilities.log("Se vendio el vehiculo con placa: " + vehiculo.getPlaca() + " al cliente: " + cliente.getNombre() + " " + cliente.getApellido());
         cliente.agregarVehiculo(vehiculo);
         eliminarVehiculo(vehiculo.getPlaca());
     }
