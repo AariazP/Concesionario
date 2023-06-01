@@ -36,11 +36,29 @@ public abstract class Vehiculo implements Serializable {
     private DisponibilidadVehiculo disponibilidadVehiculo;
 
     public Vehiculo() {
-
+    estadoVehiculo = EstadoVehiculo.NUEVO;
     }
 
 
     public boolean compararPlaca(String placa) {
         return this.placa.equals(placa);
+    }
+
+    public void isNuevo() {
+        estadoVehiculo= EstadoVehiculo.NUEVO;
+    }
+
+    public void isUsado() {
+        estadoVehiculo= EstadoVehiculo.USADO;
+    }
+    public String getCombustible(){
+        if(TipoCombustible.DIESEL==combustible){
+            return "Diesel";
+        }if(TipoCombustible.HIBRIDO==combustible){
+            return "Hibrido";
+        }if(TipoCombustible.GASOLINA==combustible){
+            return "Gasolina";
+        }
+        return "Electrico";
     }
 }

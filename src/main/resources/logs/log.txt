@@ -1,0 +1,4 @@
+[2023-06-01 10:27:06] Se vendio el vehiculo con placa: kdm325 al cliente: cliente cliente
+[2023-06-01 10:27:07] Se ha vendido el vehiculo kdm325 al cliente cliente cliente
+[2023-06-01 10:35:59] Se vendio el vehiculo con placa: null al cliente: cliente cliente
+[2023-06-01 10:51:55] Se vendio el vehiculo con placa: prf534 al cliente: cliente cliente

@@ -30,7 +30,7 @@ public class Concesionario implements Serializable {
         listaAdministradores = new ArrayList<>();
         listaRegistros = new ArrayList<>();
 
-        /*Administrador administrador = new Administrador();
+   /* Administrador administrador = new Administrador();
         administrador.setNombre("admin");
         administrador.setApellido("admin");
         administrador.setCedula("admin");

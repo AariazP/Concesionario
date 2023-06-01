@@ -422,7 +422,7 @@ public class EmpleadoController {
     @FXML
     void guardarSuv(ActionEvent ignoredEvent) {
         if (verificarCampos()) {
-
+            cargarCampos();
             if (!txtCapacidadMaleteroSuv.getText().isEmpty()
                     && cmbCapacidadCruceroSuv.getValue() != null && cmbTipo4X4Suv.getValue() != null) {
 
@@ -437,7 +437,7 @@ public class EmpleadoController {
                 limpiarCamposSuv();
 
             } else {
-                Application.getApplication().mostrarAlerta("Faltan campos por llenar en Van");
+                Application.getApplication().mostrarAlerta("Faltan campos por llenar en SUV");
             }
 
 
@@ -457,7 +457,7 @@ public class EmpleadoController {
     void guardarVan(ActionEvent ignoredEvent) {
 
         if (verificarCampos()) {
-
+            cargarCampos();
             if (!txtCapacidadMaleteroVan.getText().isEmpty()) {
 
                 Van van = new Van();
@@ -505,7 +505,16 @@ public class EmpleadoController {
         automovil.setAireAcondicionado(aireAcondicionado);
         automovil.setNumBolsasAire(numeroBolsasAire);
         automovil.setFotos(obtenerImages());
-
+        if(cmbEstadoVehiculo.getValue().equalsIgnoreCase("Nuevo")){
+            automovil.isNuevo();
+        }else{
+            automovil.isUsado();
+        }
+        if(cmbTipoCombustible.getValue().equalsIgnoreCase("Nuevo")){
+            automovil.isNuevo();
+        }else{
+            automovil.isUsado();
+        }
 
     }
 
