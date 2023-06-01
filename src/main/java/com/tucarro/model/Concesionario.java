@@ -20,6 +20,7 @@ public class Concesionario implements Serializable {
     private ArrayList<Registro> listaRegistros;
     public static Concesionario concesionario;
     private Empleado empleadoActual;
+    private Cliente clienteActual;
 
 
     private Concesionario() {
@@ -28,6 +29,7 @@ public class Concesionario implements Serializable {
         listaVehiculos = new ArrayList<>();
         listaAdministradores = new ArrayList<>();
         listaRegistros = new ArrayList<>();
+        
     }
 
     /**
@@ -37,6 +39,7 @@ public class Concesionario implements Serializable {
     public static Concesionario getInstance() {
 
         if (concesionario == null) concesionario = MethodsUtilities.deserializarConcesionario();
+        if (concesionario == null) concesionario = new Concesionario();
         return concesionario;
 
     }
@@ -172,7 +175,11 @@ public class Concesionario implements Serializable {
     public String login(String usuario, String contrasenia) {
 
         for (Cliente cliente : listaClientes) {
-            if (cliente.compararEmail(usuario) && cliente.compararContrasenia(contrasenia)) return "Cliente";
+            if (cliente.compararEmail(usuario) && cliente.compararContrasenia(contrasenia)){
+                clienteActual = cliente;
+                return "Cliente";
+            }
+
         }
 
 

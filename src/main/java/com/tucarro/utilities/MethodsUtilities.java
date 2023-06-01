@@ -172,4 +172,17 @@ public class MethodsUtilities {
         }
         return concesionario;
     }
+
+    public static String getTipoVehiculo(Vehiculo vehiculo) {
+
+        if(vehiculo instanceof Automovil) return "Automovil";
+        if(vehiculo instanceof Camion) return "Camion";
+        if(vehiculo instanceof Sedan) return "Sedan";
+        if(vehiculo instanceof Pick_Up) return "PickUp";
+        if(vehiculo instanceof Deportivo) return "Deportivo";
+        if(vehiculo instanceof Suv_Camioneta) return "SuvCamioneta";
+        if(vehiculo instanceof Van) return "Van";
+        if(vehiculo instanceof Bus) return "Bus";
+        return "";
+    }
 }

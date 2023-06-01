@@ -10,17 +10,11 @@ import java.util.ArrayList;
 public class Administrador extends Persona implements Serializable {
 
 
-    Empleado empleado = new Empleado("yuri","reyes","123","yuri123","1234");
+
 
     //Constructores
     public Administrador(){
         super();
-    }
-    public Administrador(String email, String contraseña){
-        super(email, contraseña);
-    }
-    public Administrador(String nombre, String apellido, String cedula, String email, String contrasenia, ArrayList<Empleado> empleados){
-        super(nombre, apellido, cedula, email, contrasenia);
     }
 
 

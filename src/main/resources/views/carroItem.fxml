@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="167.0" prefWidth="193.0" style="-fx-background-color: BLUE; -fx-background-radius: 40; -fx-border-radius: 40;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.CarroItemController">
+<AnchorPane onMouseClicked="#verDetalles" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tucarro.controllers.CarroItemController">
    <children>
-      <Label layoutX="60.0" layoutY="52.0" text="Hola" />
+      <AnchorPane layoutY="1.0" onMouseClicked="#verDetalles" prefHeight="147.0" prefWidth="205.0" style="-fx-background-color: Transparent; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: BLACK;">
+         <children>
+            <ImageView fx:id="imgVehiculo" fitHeight="83.0" fitWidth="89.0" layoutX="20.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Imagenparaclientes.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="116.0" layoutY="25.0" text="Marca" />
+            <Label fx:id="lblMarca" layoutX="169.0" layoutY="25.0" text="lblMarca" />
+            <Label layoutX="115.0" layoutY="56.0" text="Modelo" />
+            <Label fx:id="lblModelo" layoutX="166.0" layoutY="54.0" text="lblModelo" />
+            <Label layoutX="15.0" layoutY="87.0" text="Placa" />
+            <Label fx:id="lblPlaca" layoutX="87.0" layoutY="86.0" text="lblPlaca" />
+            <Label layoutX="9.0" layoutY="111.0" prefHeight="34.0" prefWidth="72.0" text="Estado del vehiculo" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEstado" layoutX="85.0" layoutY="120.0" text="lblEstado">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </AnchorPane>

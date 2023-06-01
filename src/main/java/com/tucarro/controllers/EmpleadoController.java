@@ -207,8 +207,6 @@ public class EmpleadoController {
     @FXML
     private TableColumn<Automovil, String> colCantCambios;
 
-
-
     @FXML
     private TableColumn<Automovil, String> colPlacaOp;
     @FXML
@@ -602,10 +600,10 @@ public class EmpleadoController {
     /**
      * Metodo que crea un cliente en el modelo
      *
-     * @param event que generado al hacer click
+     * @param ignoredEvent que generado al hacer click
      */
     @FXML
-    public void crearCliente(ActionEvent event) {
+    public void crearCliente(ActionEvent ignoredEvent) {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
@@ -652,7 +650,7 @@ public class EmpleadoController {
      * Este metodo permite actualizar los datos de un cliente
      */
     @FXML
-    public void actualizarCliente(ActionEvent event) {
+    public void actualizarCliente(ActionEvent ignoredEvent) {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
@@ -692,10 +690,10 @@ public class EmpleadoController {
     /**
      * Metodo que permite eliminar un cliente
      *
-     * @param event que se genera al hacer click
+     * @param ignoredEvent que se genera al hacer click
      */
     @FXML
-    public void eliminarCliente(ActionEvent event) {
+    public void eliminarCliente(ActionEvent ignoredEvent) {
 
         Cliente cliente = tblClientes.getSelectionModel().getSelectedItem();
         Concesionario.getInstance().eliminarCliente(cliente.getCedula());
@@ -826,11 +824,13 @@ public class EmpleadoController {
     }
 
     public void eliminarVehiculo(ActionEvent ignoredEvent){
+        if(vehiculoSeleccionado == null) return;
         Concesionario.getInstance().eliminarVehiculo(vehiculoSeleccionado.getPlaca());
         refrescarTablaVehiculos();
+        Application.getApplication().mostrarAlerta("Vehiculo eliminado. se ha eliminado el vehiculo "+ vehiculoSeleccionado.getPlaca());
     }
 
-    public void venderVehiculo(ActionEvent event){
+    public void venderVehiculo(ActionEvent ignoredEvent){
         Cliente cliente = tblClientesOp.getSelectionModel().getSelectedItem();
         Vehiculo vehiculo = tblVehiculosOp.getSelectionModel().getSelectedItem();
         if(cliente != null && vehiculo != null){
@@ -842,7 +842,7 @@ public class EmpleadoController {
         }
     }
 
-    public void alquilarVehiculo(ActionEvent event){
+    public void alquilarVehiculo(ActionEvent ignoredEvent){
         Cliente cliente = tblClientesOp.getSelectionModel().getSelectedItem();
         Vehiculo vehiculo = tblVehiculosOp.getSelectionModel().getSelectedItem();
         if(cliente != null && vehiculo != null){
